@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,11 +6,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recipe Sharing Platform</title>
     <link rel="stylesheet" href="/style.css" />
+    <!-- Tailwind CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body
-    class="h-screen bg-gradient-to-b from-gray-900 to-slate-800 flex flex-col text-white"></body>
-    <script type="module" src="/main.js"></script>
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    class="h-screen bg-gradient-to-b bg-gray-150 flex flex-col text-green-800"
+  >
+    <!-- Navigation Bar -->
+    <nav class="bg-green-400 p-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="#" class="text-white text-xl font-bold">Recipe Platform</a>
+        <ul class="flex space-x-4">
+          <li><a href="#" class="text-white">Home</a></li>
+          <li><a href="#" class="text-white">Recipes</a></li>
+          <li><a href="#" class="text-white">Meal Planner</a></li>
+          <li><a href="#" class="text-white">Shopping List</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto mt-8">
+      <!-- Homepage with Image -->
+      <div class="flex flex-col items-center">
+        <h1 class="text-3xl font-bold mb-4">
+          Welcome to the Recipe Sharing Platform!
+        </h1>
+        <p class="text-lg mb-8">
+          Browse through delicious recipes shared by our community.
+        </p>
+      </div>
+
+      <!-- Container for Recipes -->
+      <div class="grid grid-cols-4 gap-8">
+        <!-- Display Recipes Here -->
+        <div class="bg-white p-4 rounded-lg shadow-md">
+          <img
+            src="pictures/20220211142754-margherita-9920.webp"
+            alt="Pizza Margherita"
+            class="w-full h-auto object-contain rounded-md mb-4"
+          />
+          <h1>Pizza Margherita</h1>
+          <p class="text-gray-600">Description of Recipe 1.</p>
+        </div>
+
+        <!-- Add more recipe containers with similar structure -->
+      </div>
+
+      <!-- Submit Recipe -->
+      <div class="mt-8">
+        <form class="flex flex-col items-center">
+          <button
+            type="submit"
+            class="bg-green-400 hover:bg-blue-600 text-white font-bold py-2 px-8 rounded"
+          >
+            Submit Recipe
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-green-400 text-white text-center py-4 mt-8">
+      <p>&copy; 2024 Recipe Platform. All rights reserved.</p>
+    </footer>
   </body>
 </html>
