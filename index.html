@@ -1,105 +1,98 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recipe Sharing Platform</title>
-    <link rel="stylesheet" href="/style.css" />
-    <!-- Tailwind CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body
-    class="h-screen bg-gradient-to-b bg-gray-150 flex flex-col text-green-800"
-  >
-    <!-- Navigation Bar -->
-    <nav class="bg-green-400 p-4">
-      <div class="container mx-auto flex justify-between items-center">
-        <div class="text-white text-3xl font-bold start-0">Icon will be here</div>
-        <ul class="flex space-x-8">
-          <li><a href="#Home" class="text-white text-xl hover:text-blue-950 duration-200 ">Home</a></li>
-          <li><a href="#"     class="text-white text-xl hover:text-blue-950 duration-200">New Recipe</a></li>
-          <li><a href="#"     class="text-white text-xl hover:text-blue-950 duration-200">Meal Planner</a></li>
-          <li><a href="#"     class="text-white text-xl hover:text-blue-950 duration-200">Shoping Cart</a></li>
-        </ul>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipe Sharing Platform</title>
+  <link rel="stylesheet" href="/style.css" />
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+
+<body class="h-screen bg-gradient-to-b bg-gray-150 flex flex-col text-green-800">
+  <!-- Navigation Bar -->
+  <nav class="bg-green-400 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="text-white text-3xl font-bold start-0">Icon will be here</div>
+      <ul class="flex space-x-8">
+        <li><a href="#Home" class="text-white text-xl hover:text-blue-950 duration-200 ">Home</a></li>
+        <li><a href="#newRecipe" class="text-white text-xl hover:text-blue-950 duration-200">New Recipe</a></li>
+        <li><a href="#" class="text-white text-xl hover:text-blue-950 duration-200">Meal Planner</a></li>
+        <li><a href="#" class="text-white text-xl hover:text-blue-950 duration-200">Shoping Cart</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container mx-auto mt-8">
+    <!-- Homepage with Image -->
+    <div class="flex flex-col items-center">
+      <h1 class="text-3xl font-bold mb-4">
+        Welcome to the Recipe Sharing & Meal Planning Platform!
+      </h1>
+      <p class="text-lg m-4">
+        Browse through delicious recipes shared by our community.
+      </p>
+    </div>
+
+    <!-- Container for Recipes -->
+    <div id="Home" class="grid grid-cols-4 gap-8">
+      <!-- Display Recipes Here -->
+      <div class="bg-white p-4 rounded-lg shadow-md">
+        <img src="pictures/margherita.webp" alt="Pizza Margherita"
+          class="w-full h-auto object-contain rounded-md mb-4" />
+        <h1>Pizza Margherita</h1>
+        <p class="text-gray-600">Description of Recipe 1.</p>
       </div>
-    </nav>
-
-    <!-- Main Content -->
-    <div class="container mx-auto mt-8">
-      <!-- Homepage with Image -->
-      <div class="flex flex-col items-center">
-        <h1 class="text-3xl font-bold mb-4">
-          Welcome to the Recipe Sharing & Meal Planning Platform!
-        </h1>
-        <p class="text-lg m-4">
-          Browse through delicious recipes shared by our community.
-        </p>
+      <div class="bg-white p-4 rounded-lg shadow-md">
+        <img src="pictures/fries.jpg" alt="Fries" class="w-full h-auto object-contain rounded-md mb-4" />
+        <h1>Fries</h1>
+        <p class="text-gray-600">Description of Recipe 2.</p>
       </div>
-
-      <!-- Container for Recipes -->
-      <div id ="Home" class="grid grid-cols-4 gap-8">
-        <!-- Display Recipes Here -->
-        <div class="bg-white p-4 rounded-lg shadow-md">
-          <img
-            src="pictures/margherita.webp"
-            alt="Pizza Margherita"
-            class="w-full h-auto object-contain rounded-md mb-4"
-            />
-          <h1>Pizza Margherita</h1>
-          <p class="text-gray-600">Description of Recipe 1.</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow-md">
-          <img
-            src="pictures/fries.jpg"
-            alt="Fries"
-            class="w-full h-auto object-contain rounded-md mb-4"
-            />
-          <h1>Fries</h1>
-          <p class="text-gray-600">Description of Recipe 2.</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow-md">
-          <img
-            src="pictures/GrilledChickenSalad.webp"
-            alt="Grilled Chicken Salad"
-            class="w-full h-auto object-contain rounded-md mb-1"
-        />
-          <h1>Grilled Chicken Salad</h1>
-          <p class="text-gray-600">Description of Recipe 3.</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow-md">
-          <img
-            src="pictures/pad-thai.jpg"
-            alt="Pad Thai"
-            class="w-full h-50 object-contain rounded-md mb-1"
-        />
-          <h1>Pad Thai</h1>
-          <p class="text-gray-600">Description of Recipe 4.</p>
-        </div>
-
-
-        <!-- Add more recipe containers with similar structure -->
+      <div class="bg-white p-4 rounded-lg shadow-md">
+        <img src="pictures/GrilledChickenSalad.webp" alt="Grilled Chicken Salad"
+          class="w-full h-auto object-contain rounded-md mb-1" />
+        <h1>Grilled Chicken Salad</h1>
+        <p class="text-gray-600">Description of Recipe 3.</p>
       </div>
-
-      <!-- Submit Recipe -->
-      <div class="mt-8">
-        <form class="flex flex-col items-center">
-          <button
-            type="submit"
-            class="bg-green-400  hover:bg-blue-400 text-white font-bold py-2 px-8 rounded"
-          >
-            Submit Recipe
-          </button>
-        </form>
+      <div class="bg-white p-4 rounded-lg shadow-md">
+        <img src="pictures/pad-thai.jpg" alt="Pad Thai" class="w-full h-50 object-contain rounded-md mb-1" />
+        <h1>Pad Thai</h1>
+        <p class="text-gray-600">Description of Recipe 4.</p>
       </div>
     </div>
+
+
+    <!-- New Recipe Section -->
+    <div id="newRecipe" class="mt-8">
+      <h2 class="text-2xl font-bold p-4">Add a New Recipe</h2>
+      <h1 class="text-xl font-bold mb-2">Recipe Title</h1>
+      <p class="text-gray-600">Add your recipe details here.</p>
+      <div class="bg-white p-4 rounded-lg shadow-md grid grid-cols-3 gap-8">
+        <!-- Input for Recipe Title -->
+        <input type="text" class="w-150 border rounded p-2 mt-2" placeholder="Enter Recipe Title" />
+        <input type="text" class="w-150 border rounded p-2 mt-2" placeholder="Enter Ingredients" />
+        <input type="text" class="w-150 border rounded p-2 mt-2" placeholder="Enter Instructions" />
+      </div>
+    </div>
+
+
+    <!-- Submit Recipe
+        <div class="mt-8">
+          <form class="flex flex-col items-center">
+            <button type="submit" class="bg-green-400  hover:bg-blue-400 text-white font-bold py-2 px-8 rounded">
+              Submit Recipe
+            </button>
+          </form>
+        </div> -->
+
 
     <!-- Footer -->
     <footer class="bg-green-400 text-white text-center py-4 mt-8">
       <p>&copy; 2024 Recipe Platform. All rights reserved.</p>
     </footer>
-  </body>
+</body>
+
 </html>
