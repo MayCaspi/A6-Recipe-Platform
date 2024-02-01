@@ -5,3 +5,8 @@
 * {
     scroll-behavior: smooth;
 }
+.recipe-img {
+    width: 100%;
+    height: auto; /
+  }
+  
