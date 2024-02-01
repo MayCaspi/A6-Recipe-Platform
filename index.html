@@ -13,7 +13,7 @@
     />
   </head>
   <body
-    class="h-screen bg-gradient-to-b bg-gray-150 flex flex-col text-green-800 pt-16"
+    class="dark:bg-slate-800 h-screen bg-gradient-to-b bg-gray-150 flex flex-col text-green-800 pt-16"
   >
 
 
@@ -23,6 +23,7 @@
         <div class="text-white text-3xl font-bold start-0">
           Icon will be here
         </div>
+        
         <ul class="flex space-x-8">
           <li>
             <a
@@ -49,9 +50,12 @@
             <a
               href="#"
               class="text-white text-xl hover:text-blue-950 duration-200"
-              >Shopping Cart</a
-            >
+              >Shopping Cart</a>
           </li>
+          <li>
+              <button id="btnTheme" class="text-white text-xl hover:text-blue-950 duration-200">dark</button>
+          </li>
+       
         </ul>
       </div>
     </nav>
@@ -263,6 +267,7 @@
         </div>
       </div>
     </div>
+    <script type="module" src ="main.js"></script>
   </body>
   <!-- Footer -->
   <footer class="bg-green-400 text-white text-center py-4 mt-8">
