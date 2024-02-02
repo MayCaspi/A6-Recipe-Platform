@@ -144,6 +144,32 @@ document.getElementById("getShoppingListBtn").addEventListener("click", function
     popupWindow.document.body.appendChild(closeButton);
 });
 
+//May
+//popup for each recipe when clicked
+document.addEventListener('DOMContentLoaded', () => {
+    const recipeCards = document.querySelectorAll('.recipe-card'); 
+    const recipePopup = document.getElementById('recipePopup');
+    // get references to popup elements: title, image, and instructions
+    const [popupTitle, popupImage, popupInstructions] = ['popupTitle', 'popupImage', 'popupInstructions'].map(id => document.getElementById(id));
+
+    recipeCards.forEach(card => card.addEventListener('click', () => {
+        const title = card.querySelector('.title').textContent;
+        const imageSrc = card.querySelector('img').src;
+        const instructions = card.querySelector('.description').textContent;
+
+        popupTitle.textContent = title;
+        popupImage.src = imageSrc;
+        popupInstructions.textContent = instructions;
+        recipePopup.classList.remove('hidden');
+    }));
+    //closes the popup when clicked on the background
+    recipePopup.addEventListener('click', event => {
+        if (event.target === recipePopup) recipePopup.classList.add('hidden');
+    });
+});
+
+
+
 // finish my fake list
 
 

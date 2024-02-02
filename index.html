@@ -16,7 +16,7 @@
 
   <!-- Navigation Bar -->
 
-  <nav class="bg-green-400 p-3 fixed w-full top-0 z-50">
+  <nav class="bg-green-400 shadow-md p-3 fixed w-full top-0 z-50">
     <div class="container mx-auto flex justify-between items-center">
       <div class="text-white text-3xl font-bold start-0">
         Icon will be here
@@ -78,51 +78,62 @@
     <!-- Container for Recipes -->
     <div class="grid grid-cols-4 gap-8 p-20" id="Home">
       <!-- Display Recipes Here -->
-      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
+      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500 recipe-card">
         <img src="pictures/margherita.webp" alt="Pizza Margherita" class="w-full h-64 object-cover rounded-md mb-4" />
-        <div class="text-center text-lg font-semibold ">Pizza Margherita</div>
-        <p class="text-gray-600 text-sm">Description of Recipe</p>
+        <div class="text-center text-lg font-semibold title">Pizza Margherita</div>
+        <p class="text-gray-600 text-sm description">Description of Recipe</p>
       </div>
-      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
+      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500 recipe-card">
         <img src="pictures/fries.jpg" alt="Fries" class="w-full h-64 object-cover rounded-md mb-4" />
-        <div class="text-center text-lg font-semibold ">Fries</div>
-        <p class="text-gray-600 text-sm">Description of Recipe</p>
+        <div class="text-center text-lg font-semibold title">Fries</div>
+        <p class="text-gray-600 text-sm description">Description of Recipe</p>
       </div>
-      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
+      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500 recipe-card">
         <img src="pictures/GrilledChickenSalad.webp" alt="Grilled Chicken Salad"
           class="w-full h-64 object-cover rounded-md mb-4" />
-        <div class="text-center text-lg font-semibold">
+        <div class="text-center text-lg font-semibold title">
           Grilled Chicken Salad
         </div>
-        <p class="text-gray-600 text-sm ">Description of Recipe</p>
+        <p class="text-gray-600 text-sm description">Description of Recipe</p>
       </div>
-      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
+      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500 recipe-card">
         <img src="pictures/pad-thai.jpg" alt="Pad Thai" class="w-full h-64 object-cover rounded-md mb-4" />
-        <div class="text-center text-lg font-semibold">Pad Thai</div>
-        <p class="text-gray-600 text-sm">Description of Recipe</p>
+        <div class="text-center text-lg font-semibold title">Pad Thai</div>
+        <p class="text-gray-600 text-sm description">Description of Recipe</p>
       </div>
-      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
-        <img src="pictures/chikenBrest.webp" alt="Pad Thai" class="w-full h-64 object-cover rounded-md mb-4" />
-        <div class="text-center text-lg font-semibold">Chicken Brest</div>
-        <p class="text-gray-600 text-sm">Description of Recipe</p>
+      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500 recipe-card">
+        <img src="pictures/chikenBrest.webp" alt="Chicken breast" class="w-full h-64 object-cover rounded-md mb-4" />
+        <div class="text-center text-lg font-semibold title">Chicken Brest</div>
+        <p class="text-gray-600 text-sm description">Description of Recipe</p>
       </div>
-      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
+      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500 recipe-card">
         <img src="pictures/Hot-Dogs.webp" alt="Hot Dog" class="w-full h-64 object-cover rounded-md mb-4" />
-        <div class="text-center text-lg font-semibold">Hot Dog</div>
-        <p class="text-gray-600 text-sm">Description of Recipe</p>
+        <div class="text-center text-lg font-semibold title">Hot Dog</div>
+        <p class="text-gray-600 text-sm description">Description of Recipe</p>
       </div>
-      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
+      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500 recipe-card">
         <img src="pictures/CouscousSaladwithVegetables.jpeg" alt="Cuscus"
           class="w-full h-64 object-cover rounded-md mb-4" />
-        <div class="text-center text-lg font-semibold">Cuscus With vegetables</div>
-        <p class="text-gray-600 text-sm">Description of Recipe </p>
+        <div class="text-center text-lg font-semibold title">Cuscus With vegetables</div>
+        <p class="text-gray-600 text-sm description">Description of Recipe </p>
       </div>
-      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
+      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500 recipe-card">
         <img src="pictures/Omelette.webp" alt="Omelette" class="w-full h-64 object-cover rounded-md mb-4" />
-        <div class="text-center text-lg font-semibold">Omelette</div>
-        <p class="text-gray-600 text-sm">Description of Recipe </p>
+        <div class="text-center text-lg font-semibold title">Omelette</div>
+        <p class="text-gray-600 text-sm description">Description of Recipe </p>
       </div>
     </div>
+    <!-- Recipe Popup -->
+    <div id="recipePopup" class="fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
+      <div class="bg-white p-8 rounded-lg w-96 max-w-md">
+          <div id="popupTitle" class="text-lg font-bold mb-4"></div>
+          <img id="popupImage" src="" alt="" class="w-full mb-4">
+          <p id="popupIngredients" class="mb-2"></p>
+          <p id="popupInstructions"></p>
+      </div>
+  </div>
+  
+
 
     <!-- New Recipe Section -->
     <hr class="border-t-2 border-grey my-4 rounded-lg shadow-black p-4" id="newRecipe" />
