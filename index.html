@@ -200,7 +200,38 @@
           Add Dinner
         </button>
       </div>
+      
     </div>
+
+    <!-- add a sideBar -->
+
+    <div>
+      <button class="bg-green-500 text-white px-2 py-1 rounded" id="clickForSideBar">Click for Side Bar</button>
+
+      <div id="mealPlanSideBar" class="hidden fixed top-1/2 right-0 transform -translate-y-1/2 w-35%  bg-gradient-to-r from-green-400 to-green-500 p-6 rounded-lg shadow-lg" >
+          <h2 class="text-2xl font-bold mb-4 text-white">Your Day Meal PLanner:</h2>
+          <ul>
+              <li id="row-sunday" class="text-gray-800">Breakfast: Pizza, Rice</li>
+              <li id="row-monday" class="text-gray-800">Lunch: Spaghetti</li>
+              <li id="row-tuesday" class="text-gray-800">Dinner: Hamburger</li>
+          </ul>
+          <br>
+          <div class="mb-5">
+              <h3 class="text-xl font-bold mb-4 text-white">Nutritional values per day:</h3>
+              <ul>
+                  <li id="row-Calories" class="text-gray-800">Calories:</li>
+                  <li id="row-Proteins" class="text-gray-800">Proteins:</li>
+                  <li id="row-Fats" class="text-gray-800">Fats:</li>
+              </ul>
+          </div>
+          <button class="bg-green-600 text-white px-2 py-1 rounded">Get Shopping List</button>
+      </div>
+    </div>
+    <!-- finish sideBar -->
+
+
+
+
   </div>
   <script type="module" src="main.js"></script>
 </body>

@@ -9,6 +9,15 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 })
 
+// add eventer for the meal planner fast view
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("clickForSideBar").addEventListener("click", function () {
+        var mealPlanDetails = document.getElementById('mealPlanSideBar');
+        mealPlanDetails.classList.toggle('hidden');
+    });
+});
+
+
 // Show active menu when scrolling
 const highlightMenu = () => {
     const elem = document.querySelector('.highlight');
