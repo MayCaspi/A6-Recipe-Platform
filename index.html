@@ -209,7 +209,8 @@
       <button class="bg-green-500 text-white px-2 py-1 rounded" id="clickForSideBar">Click for Side Bar</button>
 
       <div id="mealPlanSideBar" class="hidden fixed top-1/2 right-0 transform -translate-y-1/2 w-35%  bg-gradient-to-r from-green-400 to-green-500 p-6 rounded-lg shadow-lg" >
-          <h2 class="text-2xl font-bold mb-4 text-white">Your Day Meal PLanner:</h2>
+        <button id="closeSideBar" class="absolute top-2 right-2 text-white text-2xl cursor-pointer">×</button>
+        <h2 class="text-2xl font-bold mb-4 text-white">Your Day Meal Planner:</h2>
           <ul>
               <li id="row-sunday" class="text-gray-800">Breakfast: Pizza, Rice</li>
               <li id="row-monday" class="text-gray-800">Lunch: Spaghetti</li>
@@ -224,7 +225,7 @@
                   <li id="row-Fats" class="text-gray-800">Fats:</li>
               </ul>
           </div>
-          <button class="bg-green-600 text-white px-2 py-1 rounded">Get Shopping List</button>
+          <button  id="getShoppingListBtn" class="bg-green-600 text-white px-2 py-1 rounded">Get Shopping List</button>
       </div>
     </div>
     <!-- finish sideBar -->
