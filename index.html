@@ -1,200 +1,142 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recipe Sharing Platform</title>
-    <link rel="stylesheet" href="/style.css" />
-    <!-- Tailwind CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body
-    class="dark:bg-slate-800 h-screen bg-gradient-to-b bg-gray-150 flex flex-col text-green-800 pt-16"
-  >
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipe Sharing Platform</title>
+  <link rel="stylesheet" href="/style.css" />
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+
+<body class="dark:bg-slate-800 h-screen bg-gradient-to-b bg-gray-150 flex flex-col text-green-800 pt-16">
 
 
-    <!-- Navigation Bar -->
+  <!-- Navigation Bar -->
 
-    <nav class="bg-green-400 p-4 fixed w-full top-0 z-50">
-      <div class="container mx-auto flex justify-between items-center">
-        <div class="text-white text-3xl font-bold start-0">
-          Icon will be here
-        </div>
-        <ul class="sm:flex space-x-8 hidden relative">
-          <li>
-            <a
-              href="#Home"
-              class="text-white text-xl hover:text-blue-950 duration-200"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a
-              href="#newRecipe"
-              class="text-white text-xl hover:text-blue-950 duration-200"
-              >New Recipe</a
-            >
-          </li>
-          <li>
-            <a
-              href="#mealPlanner"
-              class="text-white text-xl hover:text-blue-950 duration-200"
-              >Meal Planner</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="text-white text-xl hover:text-blue-950 duration-200"
-              >Shopping Cart</a>
-          </li>
-          <li>
-            <button id="btnTheme" class="text-white text-xl hover:text-blue-950 duration-200 border border-white px-3 rounded-full">dark</button>
-          </li>
-       
-        </ul>
-        <button id ="btnMenu" class="border border-slate-700 rounded py-1 px-3 block sm:hidden ">menu</button>
-        <div id ="popUp" class="justify-start gap-4 sm:hidden absolute bg-slate-300
+  <nav class="bg-green-400 p-3 fixed w-full top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="text-white text-3xl font-bold start-0">
+        Icon will be here
+      </div>
+      <ul class="sm:flex space-x-8 hidden relative">
+        <li>
+          <a href="#Home" class="text-white text-xl hover:text-blue-950 duration-200" id="home-page">Home</a>
+        </li>
+        <li>
+          <a href="#newRecipe" class="text-white text-xl hover:text-blue-950 duration-200" id="newRecipe-page">New
+            Recipe</a>
+        </li>
+        <li>
+          <a href="#mealPlanner" class="text-white text-xl hover:text-blue-950 duration-200" id="mealPlanner-page">Meal
+            Planner</a>
+        </li>
+        <li>
+          <a href="#" class="text-white text-xl hover:text-blue-950 duration-200">Shopping Cart</a>
+        </li>
+        <li>
+          <button id="btnTheme"
+            class="text-white text-xl hover:text-blue-950 duration-200 border border-white px-3 rounded-full">dark</button>
+        </li>
+
+      </ul>
+      <button id="btnMenu" class="border border-slate-700 rounded py-1 px-3 block sm:hidden ">menu</button>
+      <div id="popUp" class="justify-start gap-4 sm:hidden absolute bg-slate-300
         left-0 right-0 top-[70px] p-4 pb-8 hidden">
-            <a href="#Home" class="font-bold hover:underline text-2xl block">Home</a>
-             <a href="newRecipe" class="font-bold hover:underline text-2xl block">New Recipe</a>
-             <a href="#mealPlanner" class="font-bold hover:underline text-2xl block">Meal Planner</a>
-        </div>
+        <a href="#Home" class="font-bold hover:underline text-2xl block">Home</a>
+        <a href="newRecipe" class="font-bold hover:underline text-2xl block">New Recipe</a>
+        <a href="#mealPlanner" class="font-bold hover:underline text-2xl block">Meal Planner</a>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <!-- Main Content -->
-    <div class="container mx-auto mt-8">
- <!-- Homepage with Image -->
- <div class="flex flex-col items-center">
-  <h1 class="text-3xl font-bold mb-4">
-    Welcome to the Recipe Sharing & Meal Planning Platform!
-  </h1>
-    <p class="text-lg m-4">
-      Browse through delicious recipes shared by our community.
-    </p>
-    
-     <!-- Add Search Bar -->
-  <div class="flex items-center mb-4" id="searchBar">
-    <input
-      type="text"
-      class="w-96 border rounded p-2 mr-2 text-sm"
-      placeholder="Search for a recipe"
-    />
-    <button
-      class="p-2 bg-green-500 text-white rounded-md"
-    >
-      <svg
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        class="w-6 h-6"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M21 21l-5.2-5.2"
-        />
-        <circle cx="10" cy="10" r="8" />
-      </svg>
-    </button>
-  </div>
-</div>
+  <!-- Main Content -->
+  <div class="container mx-auto mt-8">
+    <!-- Homepage with Image -->
+    <div class="flex flex-col items-center">
+      <h1 class="text-3xl font-bold mb-4">
+        Welcome to the Recipe Sharing & Meal Planning Platform!
+      </h1>
+      <p class="text-lg m-4">
+        Browse through delicious recipes shared by our community.
+      </p>
 
-      <!-- Container for Recipes -->
-      <div class="grid grid-cols-4 gap-8">
-        <!-- Display Recipes Here -->
-        <div id="Home" class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
-          <img
-            src="pictures/margherita.webp"
-            alt="Pizza Margherita"
-            class="w-full h-64 object-cover rounded-md mb-4"
-          />
-          <div class="text-center text-lg font-semibold ">Pizza Margherita</div>
-          <p class="text-gray-600 text-sm">Description of Recipe</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
-          <img
-            src="pictures/fries.jpg"
-            alt="Fries"
-            class="w-full h-64 object-cover rounded-md mb-4"
-          />
-          <div class="text-center text-lg font-semibold ">Fries</div>
-          <p class="text-gray-600 text-sm">Description of Recipe</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
-          <img
-            src="pictures/GrilledChickenSalad.webp"
-            alt="Grilled Chicken Salad"
-            class="w-full h-64 object-cover rounded-md mb-4"
-          />
-          <div class="text-center text-lg font-semibold">
-            Grilled Chicken Salad
-          </div>
-          <p class="text-gray-600 text-sm ">Description of Recipe</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
-          <img
-            src="pictures/pad-thai.jpg"
-            alt="Pad Thai"
-            class="w-full h-64 object-cover rounded-md mb-4"
-          />
-          <div class="text-center text-lg font-semibold">Pad Thai</div>
-          <p class="text-gray-600 text-sm">Description of Recipe</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
-          <img
-            src="pictures/chikenBrest.webp"
-            alt="Pad Thai"
-            class="w-full h-64 object-cover rounded-md mb-4"
-          />
-          <div class="text-center text-lg font-semibold">Chicken Brest</div>
-          <p class="text-gray-600 text-sm">Description of Recipe</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
-          <img
-            src="pictures/Hot-Dogs.webp"
-            alt="Hot Dog"
-            class="w-full h-64 object-cover rounded-md mb-4"
-          />
-          <div class="text-center text-lg font-semibold">Hot Dog</div>
-          <p class="text-gray-600 text-sm">Description of Recipe</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
-          <img
-            src="pictures/CouscousSaladwithVegetables.jpeg"
-            alt="Cuscus"
-            class="w-full h-64 object-cover rounded-md mb-4"
-          />
-          <div class="text-center text-lg font-semibold">Cuscus With vegetables</div>
-          <p class="text-gray-600 text-sm">Description of Recipe </p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
-          <img
-            src="pictures/Omelette.webp"
-            alt="Omelette"
-            class="w-full h-64 object-cover rounded-md mb-4"
-          />
-          <div class="text-center text-lg font-semibold">Omelette</div>
-          <p class="text-gray-600 text-sm">Description of Recipe </p>
-        </div>
+      <!-- Add Search Bar -->
+      <div class="flex items-center mb-4" id="searchBar">
+        <input type="text" class="w-96 border rounded p-2 mr-2 text-sm" placeholder="Search for a recipe" />
+        <button class="p-2 bg-green-500 text-white rounded-md">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-5.2-5.2" />
+            <circle cx="10" cy="10" r="8" />
+          </svg>
+        </button>
       </div>
+    </div>
+
+    <!-- Container for Recipes -->
+    <div class="grid grid-cols-4 gap-8 p-20" id="Home">
+      <!-- Display Recipes Here -->
+      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
+        <img src="pictures/margherita.webp" alt="Pizza Margherita" class="w-full h-64 object-cover rounded-md mb-4" />
+        <div class="text-center text-lg font-semibold ">Pizza Margherita</div>
+        <p class="text-gray-600 text-sm">Description of Recipe</p>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
+        <img src="pictures/fries.jpg" alt="Fries" class="w-full h-64 object-cover rounded-md mb-4" />
+        <div class="text-center text-lg font-semibold ">Fries</div>
+        <p class="text-gray-600 text-sm">Description of Recipe</p>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
+        <img src="pictures/GrilledChickenSalad.webp" alt="Grilled Chicken Salad"
+          class="w-full h-64 object-cover rounded-md mb-4" />
+        <div class="text-center text-lg font-semibold">
+          Grilled Chicken Salad
+        </div>
+        <p class="text-gray-600 text-sm ">Description of Recipe</p>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
+        <img src="pictures/pad-thai.jpg" alt="Pad Thai" class="w-full h-64 object-cover rounded-md mb-4" />
+        <div class="text-center text-lg font-semibold">Pad Thai</div>
+        <p class="text-gray-600 text-sm">Description of Recipe</p>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
+        <img src="pictures/chikenBrest.webp" alt="Pad Thai" class="w-full h-64 object-cover rounded-md mb-4" />
+        <div class="text-center text-lg font-semibold">Chicken Brest</div>
+        <p class="text-gray-600 text-sm">Description of Recipe</p>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
+        <img src="pictures/Hot-Dogs.webp" alt="Hot Dog" class="w-full h-64 object-cover rounded-md mb-4" />
+        <div class="text-center text-lg font-semibold">Hot Dog</div>
+        <p class="text-gray-600 text-sm">Description of Recipe</p>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
+        <img src="pictures/CouscousSaladwithVegetables.jpeg" alt="Cuscus"
+          class="w-full h-64 object-cover rounded-md mb-4" />
+        <div class="text-center text-lg font-semibold">Cuscus With vegetables</div>
+        <p class="text-gray-600 text-sm">Description of Recipe </p>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500">
+        <img src="pictures/Omelette.webp" alt="Omelette" class="w-full h-64 object-cover rounded-md mb-4" />
+        <div class="text-center text-lg font-semibold">Omelette</div>
+        <p class="text-gray-600 text-sm">Description of Recipe </p>
+      </div>
+    </div>
 
     <!-- New Recipe Section -->
-    <hr class="border-t-2 border-grey my-4 rounded-lg shadow-black" />
-    <div id="newRecipe" class="mt-8 text-center bg-white p-4 rounded-lg shadow-md grid justify-items-center">
+    <hr class="border-t-2 border-grey my-4 rounded-lg shadow-black p-4" id="newRecipe" />
+    <div class="mt-8 text-center bg-white p-4 rounded-lg shadow-md grid justify-items-center">
       <div class="text-3xl font-bold mb-2">Recipe Title</div>
       <p class="text-gray-600">Add your recipe details here.</p>
 
       <!-- Input for Recipe -->
+      <input type="text" class="w-1/3 border rounded p-2 mt-2 text-sm text-left" placeholder="Enter Your Name" />
       <input type="text" class="w-1/3 border rounded p-2 mt-2 text-sm text-left" placeholder="Enter Recipe Title" />
-      <input type="text" class="w-1/3 border rounded p-2 mt-2 text-sm text-left" placeholder="Enter Ingredients" style="height: 100px; padding-bottom: 80px" />
-      <input type="text" class="w-1/3 border rounded p-2 mt-2 text-sm text-left" placeholder="Enter Instructions" style="height: 200px; padding-bottom: 180px" />
+      <input type="text" class="w-1/3 border rounded p-2 mt-2 text-sm text-left" placeholder="Enter Ingredients"
+        style="height: 100px; padding-bottom: 80px" />
+      <input type="text" class="w-1/3 border rounded p-2 mt-2 text-sm text-left" placeholder="Enter Instructions"
+        style="height: 200px; padding-bottom: 180px" />
 
       <!-- Input for Nutrition Values (2x2 Format) -->
       <div class="grid grid-cols-2 gap-2 mt-2 w-1/3">
@@ -205,13 +147,11 @@
       </div>
 
       <!-- Container for File Input -->
-
-       <!-- Container for File Input -->
       <div class="flex items-center w-1/3 mt-2 mb-10">
-        <label for="recipeImage" class="cursor-pointer bg-gray-200 text-gray-700 px-4 py-2 rounded-md ">Upload Image</label>
+        <label for="recipeImage" class="cursor-pointer bg-gray-200 text-gray-700 px-4 py-2 rounded-md ">Upload
+          Image</label>
         <input type="file" id="recipeImage" name="recipeImage" accept="image/*" class="hidden" />
       </div>
-
 
       <!-- Button to Add a New Recipe -->
       <button class="text-2xl font-bold p-4 bg-green-500 text-white rounded-lg shadow-md mb-4 mx-auto block mt-2">
@@ -220,64 +160,53 @@
     </div>
 
 
-
-      <!-- Banner Section -->
-      <div class="bg-gradient-to-br from-green-400 to-green-500 mt-8 text-center p-4 banner-section">
-        <div class="container mx-auto">
-          <div class="text-2xl font-bold mb-4 text-white">
-            Did you know? Eating a balanced diet rich in fruits, vegetables, and
-            whole grains can help promote good health and reduce the risk of
-            chronic diseases!
-          </div>
-        </div>
-      </div>
-      
-      <!-- Meal Planner Section -->
-      <div
-        id="mealPlanner"
-        class="mt-8 text-center bg-white p-4 rounded-lg shadow-md grid justify-items-center"
-      >
-        <div class="text-3xl font-bold mb-2">Meal Planner</div>
-        <p class="text-gray-600">Plan your meals for the day.</p>
-
-        <!-- Breakfast Section -->
-        <div class="mt-6 border-b border-gray-300 pb-4">
-          <div class="text-xl font-semibold mb-2">Breakfast</div>
-          <!-- Button to Add Breakfast Meal -->
-          <button
-            class="text-lg font-bold p-2 bg-green-500 text-white rounded-lg shadow-md mb-2"
-          >
-            Add Breakfast
-          </button>
-        </div>
-
-        <!-- Lunch Section -->
-        <div class="mt-6 border-b border-gray-300 pb-4">
-          <div class="text-xl font-semibold mb-2">Lunch</div>
-          <!-- Button to Add Lunch Meal -->
-          <button
-            class="text-lg font-bold p-2 bg-green-500 text-white rounded-lg shadow-md mb-2"
-          >
-            Add Lunch
-          </button>
-        </div>
-
-        <!-- Dinner Section -->
-        <div class="mt-6">
-          <div class="text-xl font-semibold mb-2">Dinner</div>
-          <!-- Button to Add Dinner Meal -->
-          <button
-            class="text-lg font-bold p-2 bg-green-500 text-white rounded-lg shadow-md mb-2"
-          >
-            Add Dinner
-          </button>
+    <!-- Banner Section -->
+    <div class="bg-gradient-to-br from-green-400 to-green-500 mt-6 text-center p-4 banner-section">
+      <div class="container mx-auto">
+        <div class="text-2xl font-bold mb-4 text-white">
+          Did you know? Apples are more effective than coffee at waking you up in the morning.
         </div>
       </div>
     </div>
-    <script type="module" src ="main.js"></script>
-  </body>
-  <!-- Footer -->
-  <footer class="bg-green-400 text-white text-center py-4 mt-8">
-    <p>&copy; 2024 Recipe Platform. All rights reserved.</p>
-  </footer>
+
+    <!-- Meal Planner Section -->
+    <div id="mealPlanner" class="mt-6 text-center bg-white p-20 rounded-lg shadow-md grid justify-items-center">
+      <div class="text-3xl font-bold mb-2">Meal Planner</div>
+      <p class="text-gray-600">Plan your meals for the day.</p>
+
+      <!-- Breakfast Section -->
+      <div class="mt-6 border-b border-gray-300 pb-4">
+        <div class="text-xl font-semibold mb-2">Breakfast</div>
+        <!-- Button to Add Breakfast Meal -->
+        <button class="text-lg font-bold p-2 bg-green-500 text-white rounded-lg shadow-md mb-2">
+          Add Breakfast
+        </button>
+      </div>
+
+      <!-- Lunch Section -->
+      <div class="mt-6 border-b border-gray-300 pb-4">
+        <div class="text-xl font-semibold mb-2">Lunch</div>
+        <!-- Button to Add Lunch Meal -->
+        <button class="text-lg font-bold p-2 bg-green-500 text-white rounded-lg shadow-md mb-2">
+          Add Lunch
+        </button>
+      </div>
+
+      <!-- Dinner Section -->
+      <div class="mt-6">
+        <div class="text-xl font-semibold mb-2">Dinner</div>
+        <!-- Button to Add Dinner Meal -->
+        <button class="text-lg font-bold p-2 bg-green-500 text-white rounded-lg shadow-md mb-2">
+          Add Dinner
+        </button>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="main.js"></script>
+</body>
+<!-- Footer -->
+<footer class="bg-green-400 text-white text-center py-4 mt-8">
+  <p>&copy; 2024 Recipe Platform. All rights reserved.</p>
+</footer>
+
 </html>

@@ -5,9 +5,12 @@
 * {
     scroll-behavior: smooth;
 }
+
 .recipe-img {
     width: 100%;
     height: auto;
-  }
+}
 
-  
+.highlight {
+    border-bottom: 4px solid rgb(41, 82, 67);
+}
