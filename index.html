@@ -53,105 +53,29 @@
     </nav>
 
   <!-- Main Content -->
-  <div class="container mx-auto mt-8">
     <!-- Homepage with Image -->
     <div class="flex flex-col items-center">
-      <h1 class="text-3xl font-bold mb-4">
+      <h1 class="text-3xl font-bold mt-2 mb-4" id="Home" >
         Welcome to the Recipe Sharing & Meal Planning Platform!
       </h1>
       <p class="text-lg m-4">
         Browse through delicious recipes shared by our community.
       </p>
+      <!-- changed this part, inserted as JavaScript that displays the recipes    -->
 
       <!-- Add Search Bar -->
-      <div class="flex items-center mb-4" id="searchBar">
+      <div class="flex items-center mb-1" id="searchBar">
         <input type="text" class="w-96 border rounded p-2 mr-2 text-sm" placeholder="Search for a recipe" />
         <button class="p-2 bg-green-500 text-white rounded-md">
           <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-5.2-5.2" />
             <circle cx="10" cy="10" r="8" />
           </svg>
-        </button>
+        </button> 
       </div>
     </div>
 
-    <!-- Container for Recipes -->
-    <div class="grid grid-cols-4 gap-8 p-20" id="Home">
-      <!-- Display Recipes Here -->
-      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500 recipe-card">
-        <img src="pictures/margherita.webp" alt="Pizza Margherita" class="w-full h-64 object-cover rounded-md mb-4" />
-        <div class="text-center text-lg font-semibold title">Pizza Margherita</div>
-        <p class="text-gray-600 text-sm description">Description of Recipe</p>
-        <button class="add-to-planner-btn text-green-500 py-1 px-2 mt-1 text-xs border border-green-500 px-3 rounded-full">
-          + Add to Planner</button>
-      </div>
-      
-
-      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500 recipe-card">
-        <img src="pictures/fries.jpg" alt="Fries" class="w-full h-64 object-cover rounded-md mb-4" />
-        <div class="text-center text-lg font-semibold title">Fries</div>
-        <p class="text-gray-600 text-sm description">Description of Recipe</p>
-        <button class="add-to-planner-btn text-green-500 py-1 px-2 mt-1 text-xs border border-green-500 px-3 rounded-full">
-          + Add to Planner</button>
-      </div>
-      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500 recipe-card">
-        <img src="pictures/GrilledChickenSalad.webp" alt="Grilled Chicken Salad"
-          class="w-full h-64 object-cover rounded-md mb-4" />
-        <div class="text-center text-lg font-semibold title">
-          Grilled Chicken Salad
-        </div>
-        <p class="text-gray-600 text-sm description">Description of Recipe</p>
-        <button class="add-to-planner-btn text-green-500 py-1 px-2 mt-1 text-xs border border-green-500 px-3 rounded-full">
-          + Add to Planner</button>
-      </div>
-      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500 recipe-card">
-        <img src="pictures/pad-thai.jpg" alt="Pad Thai" class="w-full h-64 object-cover rounded-md mb-4" />
-        <div class="text-center text-lg font-semibold title">Pad Thai</div>
-        <p class="text-gray-600 text-sm description">Description of Recipe</p>
-        <button class="add-to-planner-btn text-green-500 py-1 px-2 mt-1 text-xs border border-green-500 px-3 rounded-full">
-          + Add to Planner</button>
-      </div>
-      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500 recipe-card">
-        <img src="pictures/chikenBrest.webp" alt="Chicken breast" class="w-full h-64 object-cover rounded-md mb-4" />
-        <div class="text-center text-lg font-semibold title">Chicken Brest</div>
-        <p class="text-gray-600 text-sm description">Description of Recipe</p>
-        <button class="add-to-planner-btn text-green-500 py-1 px-2 mt-1 text-xs border border-green-500 px-3 rounded-full">
-          + Add to Planner</button>
-      </div>
-      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500 recipe-card">
-        <img src="pictures/Hot-Dogs.webp" alt="Hot Dog" class="w-full h-64 object-cover rounded-md mb-4" />
-        <div class="text-center text-lg font-semibold title">Hot Dog</div>
-        <p class="text-gray-600 text-sm description">Description of Recipe</p>
-        <button class="add-to-planner-btn text-green-500 py-1 px-2 mt-1 text-xs border border-green-500 px-3 rounded-full">
-          + Add to Planner</button>
-      </div>
-      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500 recipe-card">
-        <img src="pictures/CouscousSaladwithVegetables.jpeg" alt="Cuscus"
-          class="w-full h-64 object-cover rounded-md mb-4" />
-        <div class="text-center text-lg font-semibold title">Cuscus With vegetables</div>
-        <p class="text-gray-600 text-sm description">Description of Recipe </p>
-        <button class="add-to-planner-btn text-green-500 py-1 px-2 mt-1 text-xs border border-green-500 px-3 rounded-full">
-          + Add to Planner</button>
-      </div>
-      <div class="bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500 recipe-card">
-        <img src="pictures/Omelette.webp" alt="Omelette" class="w-full h-64 object-cover rounded-md mb-4" />
-        <div class="text-center text-lg font-semibold title">Omelette</div>
-        <p class="text-gray-600 text-sm description">Description of Recipe </p>
-        <button class="add-to-planner-btn text-green-500 py-1 px-2 mt-1 text-xs border border-green-500 px-3 rounded-full">
-          + Add to Planner</button>
-      </div>
-    </div>
-    <!-- Recipe Popup -->
-    <div id="recipePopup" class="fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
-      <div class="bg-white p-8 rounded-lg w-96 max-w-md">
-          <div id="popupTitle" class="text-lg font-bold mb-4"></div>
-          <img id="popupImage" src="" alt="" class="w-full mb-4">
-          <p id="popupIngredients" class="mb-2"></p>
-          <p id="popupInstructions"></p>
-      </div>
-  </div>
-  
-
+    <div class="grid grid-cols-4 gap-8 p-20" id="recipeContainer"></div>
 
     <!-- New Recipe Section -->
     <hr class="border-t-2 border-grey my-4 rounded-lg shadow-black p-4" id="newRecipe" />
@@ -160,18 +84,18 @@
       <p class="text-gray-600">Add your recipe details here.</p>
 
       <!-- Input for Recipe -->
-      <input type="text" class="w-1/3 border rounded p-2 mt-2 text-sm text-left" placeholder="Enter Your Name" />
-      <input type="text" class="w-1/3 border rounded p-2 mt-2 text-sm text-left" placeholder="Enter Recipe Title" />
-      <input type="text" class="w-1/3 border rounded p-2 mt-2 text-sm text-left" placeholder="Enter Ingredients"
+      <input type="text" id ="NameUserAddNewRecipe" class="w-1/3 border rounded p-2 mt-2 text-sm text-left" placeholder="Enter Your Name" />
+      <input type="text" id ="NameNewRecipe" class="w-1/3 border rounded p-2 mt-2 text-sm text-left" placeholder="Enter Recipe Title" />
+      <input type="text" id="IngredientsNewRecipe" class="w-1/3 border rounded p-2 mt-2 text-sm text-left" placeholder="Enter Ingredients"
         style="height: 100px; padding-bottom: 80px" />
       <input type="text" class="w-1/3 border rounded p-2 mt-2 text-sm text-left" placeholder="Enter Instructions"
         style="height: 200px; padding-bottom: 180px" />
 
       <!-- Input for Nutrition Values (2x2 Format) -->
       <div class="grid grid-cols-2 gap-2 mt-2 w-1/3">
-        <input type="text" class="w-full border rounded p-2 text-sm text-left" placeholder="Enter Calories" />
-        <input type="text" class="w-full border rounded p-2 text-sm text-left" placeholder="Enter Fat (g)" />
-        <input type="text" class="w-full border rounded p-2 text-sm text-left" placeholder="Enter Protein (g)" />
+        <input type="text" id="newCal" class="w-full border rounded p-2 text-sm text-left" placeholder="Enter Calories" />
+        <input type="text" id="newFat" class="w-full border rounded p-2 text-sm text-left" placeholder="Enter Fat (g)" />
+        <input type="text" id="newProtein" class="w-full border rounded p-2 text-sm text-left" placeholder="Enter Protein (g)" />
         <input type="text" class="w-full border rounded p-2 text-sm text-left" placeholder="Enter Carbohydrates (g)" />
       </div>
 
@@ -183,7 +107,8 @@
       </div>
 
       <!-- Button to Add a New Recipe -->
-      <button class="text-2xl font-bold p-4 bg-green-500 text-white rounded-lg shadow-md mb-4 mx-auto block mt-2">
+      <!-- <button class="text-2xl font-bold p-4 bg-green-500 text-white rounded-lg shadow-md mb-4 mx-auto block mt-2"> -->
+        <button id="submitRecipeBtn" class="text-2xl font-bold p-4 bg-green-500 text-white rounded-lg shadow-md mb-4 mx-auto block mt-2">
         Submit Recipe
       </button>
     </div>

@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 })
 
+
+
 // add eventer for the meal planner fast view
 document.addEventListener("DOMContentLoaded", function () {
     var mealPlanDetails = document.getElementById('mealPlanSideBar');
@@ -24,32 +26,197 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-// Show active menu when scrolling
-const highlightMenu = () => {
-    const elem = document.querySelector('.highlight');
-    const homeMenu = document.querySelector('#home-page');
-    const newRecipeMenu = document.querySelector('#newRecipe-page');
-    const mealPlannerMenu = document.querySelector('#mealPlanner-page');
-    let scrollPos = window.scrollY;
-    // console.log(scrollPos); 
-    // used to find the correct values for scrollPos (try to run it on your browser's console)
 
-    // adds 'highlight' class to menu items
-    if (scrollPos < 750) {
-        homeMenu.classList.add('highlight');
-        newRecipeMenu.classList.remove('highlight');
-        return;
-    } else if (scrollPos < 1700) {
-        newRecipeMenu.classList.add('highlight');
-        homeMenu.classList.remove('highlight');
-        mealPlannerMenu.classList.remove('highlight');
-        return;
-    } else if (scrollPos < 2345) {
-        mealPlannerMenu.classList.add('highlight');
-        newRecipeMenu.classList.remove('highlight');
-        return;
+
+let recipes = [];
+//  ---import fake data from json
+document.addEventListener("DOMContentLoaded", function () {
+ // Load recipes from JSON file
+ fetch('rcipesInfo.json')
+ .then(response => response.json())
+ .then(data => {
+    recipes = data;
+     // Create recipe cards dynamically
+     recipes.slice(0, 8).forEach(recipe => {
+        createRecipeCardOnDisplay(recipe.name, recipe.image, recipe.description,recipe.ingredients, recipe.nutritionalValues);
+     });
+ })
+ .catch(error => console.error('Error fetching recipes:', error));
+});
+
+//create the recipes cards for the display
+function createRecipeCardOnDisplay(title, imageSrc, description, ingredients, nutritionalValues) {
+    const recipeContainer = document.getElementById("recipeContainer");
+
+    const recipeCard = document.createElement("div");
+    recipeCard.className = "bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500 recipe-card";
+
+    const img = document.createElement("img");
+    img.src = imageSrc;
+    img.alt = title;
+    img.className = "w-full h-64 object-cover rounded-md mb-4";
+
+    img.addEventListener("click", function () {
+        // Include the call to openPopup with necessary arguments
+        openPopup(title, imageSrc, description, ingredients, nutritionalValues);
+    });
+
+    const titleElement = document.createElement("div");
+    titleElement.className = "text-center text-lg font-semibold title";
+    titleElement.textContent = title;
+
+    const descriptionElement = document.createElement("p");
+    descriptionElement.className = "text-gray-600 text-sm description";
+    descriptionElement.textContent = description;
+
+    const addButton = document.createElement("button");
+    addButton.className = "add-to-planner-btn text-green-500 py-1 px-2 mt-1 text-xs border border-green-500 px-3 rounded-full";
+    addButton.textContent = "+ Add to Planner";
+
+    recipeCard.appendChild(img);
+    recipeCard.appendChild(titleElement);
+    recipeCard.appendChild(descriptionElement);
+    recipeCard.appendChild(addButton);
+
+    recipeContainer.appendChild(recipeCard);
+}
+// finish the importing
+
+
+
+//popup for recepies
+let currentPopupImg = null;
+function openPopup(title, imageSrc, description, ingredients, nutritionalValues) {
+    // Check if there's already an open popup
+    const existingPopup = document.querySelector(".popup");
+
+    // If there is, remove it
+    if (existingPopup) {
+        document.body.removeChild(existingPopup);
+        if (currentPopupImg === imageSrc) {
+            currentPopupImg = null; // Reset currentPopupImg when closing
+            return; // Return to prevent creating a new popup
+        }
     }
-};
+
+    // Create and customize the popup elements
+    const popup = document.createElement("div");
+    popup.classList.add(
+        "fixed",
+        "top-1/2",
+        "left-1/2",
+        "transform",
+        "-translate-x-1/2",
+        "-translate-y-1/2",
+        "bg-white",
+        "p-4", 
+        "rounded-md",
+        "shadow-md",
+        "z-50",
+        "text-center",
+        "max-w-sm", // Reduced max width
+        "popup" // Add a class to identify the popup
+    );
+
+    const closeBtn = document.createElement("button");
+    closeBtn.innerHTML = '<span class="text-stone-900 font-extrabold text-2xl bg-slate-200 rounded cursor-pointer">&times;</span>'; // Larger 'x' character for close
+    closeBtn.classList.add("absolute", "top-2", "left-2");
+
+    closeBtn.addEventListener("click", function () {
+        document.body.removeChild(popup);
+        currentPopupImg = null; // Reset currentPopupImg when closing
+    });
+
+    const popupImg = document.createElement("img");
+    popupImg.src = imageSrc;
+    popupImg.alt = title;
+    popupImg.classList.add("w-full", "h-64", "object-cover", "rounded-md", "mb-4");
+
+    const popupTitle = document.createElement("h2");
+    popupTitle.textContent = title;
+    popupTitle.classList.add("text-lg", "font-semibold", "mb-4");
+
+    const popupDescription = document.createElement("p");
+    popupDescription.textContent = description;
+    popupDescription.classList.add("text-gray-600", "text-sm", "mb-4");
+
+    const ingredientsElement = document.createElement("div");
+    ingredientsElement.classList.add("text-left", "mb-4");
+    const ingredientsTitle = document.createElement("h3");
+    ingredientsTitle.textContent = "Ingredients";
+    ingredientsTitle.classList.add("text-gray-800", "text-md", "font-semibold", "mb-2");
+    ingredientsElement.appendChild(ingredientsTitle);
+
+    const ingredientsList = document.createElement("p");
+    ingredientsList.textContent = ingredients.join(', '); // Join ingredients with a comma
+    ingredientsElement.appendChild(ingredientsList);
+
+    const nutritionalValuesElement = document.createElement("div");
+    nutritionalValuesElement.classList.add("text-left", "mb-4");
+    const nutritionalValuesTitle = document.createElement("h3");
+    nutritionalValuesTitle.textContent = "Nutritional Values";
+    nutritionalValuesTitle.classList.add("text-gray-800", "text-md", "font-semibold", "mb-2");
+    nutritionalValuesElement.appendChild(nutritionalValuesTitle);
+
+    const nutritionalValuesList = document.createElement("ul");
+    for (const [key, value] of Object.entries(nutritionalValues)) {
+        const listItem = document.createElement("li");
+        listItem.textContent = `${key}: ${value}g`;
+        nutritionalValuesList.appendChild(listItem);
+    }
+    nutritionalValuesElement.appendChild(nutritionalValuesList);
+
+    popup.appendChild(closeBtn);
+    popup.appendChild(popupImg);
+    popup.appendChild(popupTitle);
+    popup.appendChild(popupDescription);
+    popup.appendChild(ingredientsElement);
+    popup.appendChild(nutritionalValuesElement);
+
+    document.body.appendChild(popup);
+
+    // Store the current popup image for comparison
+    currentPopupImg = imageSrc;
+}
+// finish the popup
+
+
+// try to make the SearchBar works
+document.addEventListener("DOMContentLoaded", function () {
+    // Add input event listener to update recipes dynamically while typing or when input is cleared
+    const searchInput = document.querySelector("#searchBar input");
+
+    searchInput.addEventListener("input", function () {
+        const searchText = searchInput.value.toLowerCase();
+
+        // Filter recipes based on the search text
+        const filteredRecipes = recipes.filter(recipe => {
+            const lowerCaseName = recipe.name.toLowerCase();
+            return lowerCaseName.includes(searchText);
+        });
+
+        // Display up to 8 recipes based on the search result or show all recipes if the search text is empty
+        displayRecipes(filteredRecipes.slice(0, 8));
+    });
+
+    // Initial display of recipes when the page loads
+    displayRecipes(recipes.slice(0, 8));
+});
+
+function displayRecipes(recipes) {
+    // Clear existing recipe cards
+    const recipeContainer = document.getElementById("recipeContainer");
+    recipeContainer.innerHTML = "";
+
+    // Create recipe cards for the filtered recipes
+    recipes.forEach(recipe => {
+        createRecipeCardOnDisplay(recipe.name, recipe.image, recipe.description, recipe.ingredients, recipe.nutritionalValues);
+    });
+}
+
+//finish the SearchBar
+
+
 
 //added an a fake shoping list
 document.getElementById("getShoppingListBtn").addEventListener("click", function() {
@@ -114,7 +281,8 @@ document.getElementById("getShoppingListBtn").addEventListener("click", function
     downloadButton.addEventListener("click", function() {
         // Generate a text file with the selected groceries
         var selectedGroceries = Array.from(shoppingList.getElementsByTagName("li")).map(function(item) {
-            return item.textContent;
+            // return item.textContent;
+            return item.textContent.replace(/Delete/g, "");
         }).join("\n");
 
         var blob = new Blob([selectedGroceries], { type: "text/plain" });
@@ -144,34 +312,90 @@ document.getElementById("getShoppingListBtn").addEventListener("click", function
     popupWindow.document.body.appendChild(closeButton);
 });
 
-//May
-//popup for each recipe when clicked
-document.addEventListener('DOMContentLoaded', () => {
-    const recipeCards = document.querySelectorAll('.recipe-card'); 
-    const recipePopup = document.getElementById('recipePopup');
-    // get references to popup elements: title, image, and instructions
-    const [popupTitle, popupImage, popupInstructions] = ['popupTitle', 'popupImage', 'popupInstructions'].map(id => document.getElementById(id));
-
-    recipeCards.forEach(card => card.addEventListener('click', () => {
-        const title = card.querySelector('.title').textContent;
-        const imageSrc = card.querySelector('img').src;
-        const instructions = card.querySelector('.description').textContent;
-
-        popupTitle.textContent = title;
-        popupImage.src = imageSrc;
-        popupInstructions.textContent = instructions;
-        recipePopup.classList.remove('hidden');
-    }));
-    //closes the popup when clicked on the background
-    recipePopup.addEventListener('click', event => {
-        if (event.target === recipePopup) recipePopup.classList.add('hidden');
-    });
-});
-
-
 
 // finish my fake list
 
+
+///adding a new recipe - fixxxxxxxxxxxxx it blattt!!
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("submitRecipeBtn").addEventListener("click", function () {
+        // Call the function to handle the recipe submission
+        submitRecipe();
+    });
+});
+function submitRecipe() {
+    // Get values from input fields
+    const name = document.getElementById("NameNewRecipe").value.trim();
+    const ingredients = document.getElementById("IngredientsNewRecipe").value.trim().split('\n');
+    const calories = document.getElementById("newCal").value.trim();
+    const fat = document.getElementById("newFat").value.trim();
+    const protein = document.getElementById("newProtein").value.trim(); // Updated id
+    const carbs = document.getElementById("newCarbs").value.trim();
+
+    // Validate input data (add your own validation logic)
+    if (!name || !ingredients || !calories || !fat || !protein || !carbs) {
+        alert("Please fill in all the required fields.");
+        return;
+    }
+
+    // Get the selected file from the file input
+    const fileInput = document.getElementById("recipeImage");
+    const file = fileInput.files[0];
+
+    // Validate if a file is selected
+    if (!file) {
+        alert("Please select a recipe image.");
+        return;
+    }
+
+    // Create a FormData object to append the file data
+    const formData = new FormData();
+    formData.append("recipeImage", file, file.name);
+
+    // Upload the file to the "pictures/" folder
+    fetch("/uploadRecipeImage", {
+        method: "POST",
+        body: formData,
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Handle the response from the server if needed
+        console.log("Image uploaded successfully:", data);
+
+        // Create a new recipe object
+        const newRecipe = {
+            name: name,
+            ingredients: ingredients,
+            nutritionalValues: {
+                calories: calories,
+                fat: fat,
+                protein: protein,
+                carbs: carbs,
+            },
+            image: "pictures/" + file.name, // Update with the correct path
+        };
+
+        // Add the new recipe to the recipes array (assuming 'recipes' is a global variable)
+        recipes.push(newRecipe);
+
+        // Display the new recipe on the page
+        createRecipeCardOnDisplay(newRecipe.name, newRecipe.image, /* add other properties as needed */);
+
+        // Optional: You can save the updated recipes array to a server or local storage
+
+        // Clear input fields
+        document.getElementById("NameNewRecipe").value = "";
+        document.getElementById("IngredientsNewRecipe").value = "";
+        document.getElementById("newCal").value = "";
+        document.getElementById("newFat").value = "";
+        document.getElementById("newProtein").value = "";
+        document.getElementById("newCarbs").value = "";
+
+        alert("Recipe submitted successfully!");
+    })
+    .catch(error => console.error("Error uploading image:", error));
+}
+/// i have to fix it!!!!!!!!!!!!!!!
 
 
 window.addEventListener('scroll', highlightMenu);

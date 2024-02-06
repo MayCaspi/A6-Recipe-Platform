@@ -1,0 +1,542 @@
+[
+  {
+    "name": "Pizza Margherita",
+    "image": "pictures/margherita.webp",
+    "description": "Classic Margherita pizza with fresh tomatoes and mozzarella.",
+    "ingredients": [
+      "Dough",
+      "Tomatoes",
+      "Mozzarella cheese",
+      "Olive oil",
+      "Basil"
+    ],
+    "nutritionalValues": {
+      "calories": 800,
+      "fat": 20,
+      "proteins": 18
+    }
+  },
+  {
+    "name": "Fries",
+    "image": "pictures/fries.jpg",
+    "description": "Crispy golden fries, perfect as a snack or side dish.",
+    "ingredients": [
+      "Potatoes",
+      "Vegetable oil",
+      "Salt"
+    ],
+    "nutritionalValues": {
+      "calories": 300,
+      "fat": 15,
+      "proteins": 3
+    }
+  },
+  {
+    "name": "Grilled Chicken Salad",
+    "image": "pictures/GrilledChickenSalad.webp",
+    "description": "Healthy salad with grilled chicken, mixed greens, and a zesty dressing.",
+    "ingredients": [
+      "Chicken breast",
+      "Mixed greens",
+      "Cherry tomatoes",
+      "Cucumber",
+      "Balsamic vinaigrette"
+    ],
+    "nutritionalValues": {
+      "calories": 500,
+      "fat": 10,
+      "proteins": 40
+    }
+  },
+  {
+    "name": "Pad Thai",
+    "image": "pictures/pad-thai.jpg",
+    "description": "Authentic Thai stir-fried noodles with peanuts and lime.",
+    "ingredients": [
+      "Rice noodles",
+      "Shrimp or chicken",
+      "Bean sprouts",
+      "Tofu",
+      "Peanuts",
+      "Lime"
+    ],
+    "nutritionalValues": {
+      "calories": 600,
+      "fat": 15,
+      "proteins": 25
+    }
+  },
+  {
+    "name": "Chicken Breast",
+    "image": "pictures/chikenBrest.webp",
+    "description": "Juicy and flavorful grilled chicken breast.",
+    "ingredients": [
+      "Chicken breast",
+      "Olive oil",
+      "Garlic",
+      "Herbs and spices"
+    ],
+    "nutritionalValues": {
+      "calories": 400,
+      "fat": 8,
+      "proteins": 60
+    }
+  },
+  {
+    "name": "Hot Dog",
+    "image": "pictures/Hot-Dogs.webp",
+    "description": "Classic hot dog with your favorite toppings.",
+    "ingredients": [
+      "Hot dog bun",
+      "Sausage",
+      "Ketchup",
+      "Mustard",
+      "Onions"
+    ],
+    "nutritionalValues": {
+      "calories": 350,
+      "fat": 18,
+      "proteins": 15
+    }
+  },
+  {
+    "name": "Couscous with Vegetables",
+    "image": "pictures/CouscousSaladwithVegetables.jpeg",
+    "description": "Delicious couscous salad with fresh vegetables.",
+    "ingredients": [
+      "Couscous",
+      "Bell peppers",
+      "Cucumbers",
+      "Cherry tomatoes",
+      "Feta cheese",
+      "Olive oil"
+    ],
+    "nutritionalValues": {
+      "calories": 450,
+      "fat": 12,
+      "proteins": 18
+    }
+  },
+  {
+    "name": "Omelette",
+    "image": "pictures/Omelette.webp",
+    "description": "Fluffy omelette with your choice of fillings.",
+    "ingredients": [
+      "Eggs",
+      "Milk",
+      "Cheese",
+      "Vegetables",
+      "Salt and pepper"
+    ],
+    "nutritionalValues": {
+      "calories": 300,
+      "fat": 20,
+      "proteins": 18
+    }
+  },
+  {
+      "name": "Avocado Toast",
+      "image": "pictures/avocadoToast.jpeg",
+      "description": "Delicious avocado toast for a healthy breakfast.",
+      "ingredients": [
+        "Avocado",
+        "Bread",
+        "Salt",
+        "Pepper"
+      ],
+      "nutritionalValues": {
+        "calories": 300,
+        "fat": 15,
+        "proteins": 5
+      }
+    },
+    {
+      "name": "Chicken Black Bean Quesadilla",
+      "image": "pictures/ChickenBlackBeanQuesadilla.jpeg",
+      "description": "Flavorful quesadilla with chicken and black beans.",
+      "ingredients": [
+        "Chicken",
+        "Black beans",
+        "Cheese",
+        "Tortillas",
+        "Salsa"
+      ],
+      "nutritionalValues": {
+        "calories": 450,
+        "fat": 20,
+        "proteins": 30
+      }
+    },
+    {
+      "name": "Cottage Cheese Pancakes",
+      "image": "pictures/Cottage-Cheese-Pancakes-9.jpg",
+      "description": "Fluffy pancakes made with cottage cheese.",
+      "ingredients": [
+        "Cottage cheese",
+        "Flour",
+        "Eggs",
+        "Milk"
+      ],
+      "nutritionalValues": {
+        "calories": 350,
+        "fat": 10,
+        "proteins": 15
+      }
+    },
+    {
+      "name": "Egg and Vegetable Stir-Fry",
+      "image": "pictures/egg-and-vegetable-stir-fry.jpg",
+      "description": "Healthy stir-fry with eggs and a variety of vegetables.",
+      "ingredients": [
+        "Eggs",
+        "Broccoli",
+        "Bell peppers",
+        "Carrots",
+        "Soy sauce"
+      ],
+      "nutritionalValues": {
+        "calories": 400,
+        "fat": 18,
+        "proteins": 20
+      }
+    },
+    {
+      "name": "Fruit Salad",
+      "image": "pictures/fruitSalad.jpg",
+      "description": "Refreshing fruit salad with a variety of fruits.",
+      "ingredients": [
+        "Strawberries",
+        "Bananas",
+        "Blueberries",
+        "Honey"
+      ],
+      "nutritionalValues": {
+        "calories": 200,
+        "fat": 1,
+        "proteins": 2
+      }
+    },
+    {
+      "name": "Green Salad",
+      "image": "pictures/green-salad.jpeg",
+      "description": "Fresh and nutritious green salad with mixed greens and dressing.",
+      "ingredients": [
+        "Mixed greens",
+        "Cucumbers",
+        "Tomatoes",
+        "Balsamic vinaigrette"
+      ],
+      "nutritionalValues": {
+        "calories": 150,
+        "fat": 8,
+        "proteins": 5
+      }
+    },
+    {
+      "name": "Grilled Cheese Toast",
+      "image": "pictures/grilledCheeseToast.jpeg",
+      "description": "Classic grilled cheese toast with melted cheese.",
+      "ingredients": [
+        "Bread",
+        "Cheese",
+        "Butter"
+      ],
+      "nutritionalValues": {
+        "calories": 250,
+        "fat": 12,
+        "proteins": 8
+      }
+    },
+    {
+      "name": "Hamburger",
+      "image": "pictures/Hamburger.jpeg",
+      "description": "Juicy hamburger with your favorite toppings.",
+      "ingredients": [
+        "Beef patty",
+        "Bun",
+        "Lettuce",
+        "Tomato",
+        "Onions"
+      ],
+      "nutritionalValues": {
+        "calories": 500,
+        "fat": 25,
+        "proteins": 20
+      }
+    },
+    {
+      "name": "Ham Sandwiches",
+      "image": "pictures/HamSandwiches.jpeg",
+      "description": "Classic ham sandwiches for a quick and tasty meal.",
+      "ingredients": [
+        "Ham",
+        "Bread",
+        "Mayonnaise",
+        "Mustard"
+      ],
+      "nutritionalValues": {
+        "calories": 350,
+        "fat": 15,
+        "proteins": 18
+      }
+    },
+    {
+      "name": "Kale Apple Salad",
+      "image": "pictures/kale-apple-salad.jpg",
+      "description": "Nutritious kale and apple salad with a tangy dressing.",
+      "ingredients": [
+        "Kale",
+        "Apples",
+        "Walnuts",
+        "Lemon vinaigrette"
+      ],
+      "nutritionalValues": {
+        "calories": 180,
+        "fat": 10,
+        "proteins": 5
+      }
+    },
+    {
+      "name": "Mashed Potatoes",
+      "image": "pictures/mashed-potatoes.jpg",
+      "description": "Creamy mashed potatoes, a classic side dish.",
+      "ingredients": [
+        "Potatoes",
+        "Butter",
+        "Milk",
+        "Salt"
+      ],
+      "nutritionalValues": {
+        "calories": 220,
+        "fat": 8,
+        "proteins": 5
+      }
+    },
+    {
+      "name": "Pasta Pesto",
+      "image": "pictures/pastaPesto.jpeg",
+      "description": "Pasta with a delicious basil pesto sauce.",
+      "ingredients": [
+        "Pasta",
+        "Basil",
+        "Pine nuts",
+        "Parmesan cheese",
+        "Olive oil"
+      ],
+      "nutritionalValues": {
+        "calories": 400,
+        "fat": 20,
+        "proteins": 10
+      }
+    },
+    {
+      "name": "Rice",
+      "image": "pictures/rice.jpg",
+      "description": "Fluffy and cooked rice, a versatile side dish.",
+      "ingredients": [
+        "Rice",
+        "Water",
+        "Salt"
+      ],
+      "nutritionalValues": {
+        "calories": 150,
+        "fat": 1,
+        "proteins": 3
+      }
+    },
+    {
+      "name": "Roast Chicken",
+      "image": "pictures/RoastChicken.webp",
+      "description": "Perfectly roasted chicken with herbs and spices.",
+      "ingredients": [
+        "Whole chicken",
+        "Herbs",
+        "Garlic",
+        "Olive oil"
+      ],
+      "nutritionalValues": {
+        "calories": 450,
+        "fat": 25,
+        "proteins": 50
+      }
+    },
+    {
+      "name": "Salmon and Asparagus",
+      "image": "pictures/SalmonAndAsparagus.jpeg",
+      "description": "Baked salmon with tender asparagus.",
+      "ingredients": [
+        "Salmon fillet",
+        "Asparagus",
+        "Lemon",
+        "Olive oil"
+      ],
+      "nutritionalValues": {
+        "calories": 350,
+        "fat": 18,
+        "proteins": 30
+      }
+    },
+    {
+      "name": "Shrimp Scampi",
+      "image": "pictures/shrimpScampi.jpeg",
+      "description": "Garlicky and buttery shrimp scampi over pasta.",
+      "ingredients": [
+        "Shrimp",
+        "Garlic",
+        "Butter",
+        "Lemon",
+        "Pasta"
+      ],
+      "nutritionalValues": {
+        "calories": 400,
+        "fat": 20,
+        "proteins": 25
+      }
+    },
+    {
+      "name": "Shrimp Stir-Fry",
+      "image": "pictures/shrimp-stir-fry.jpg",
+      "description": "Quick and flavorful shrimp stir-fry with vegetables.",
+      "ingredients": [
+        "Shrimp",
+        "Broccoli",
+        "Bell peppers",
+        "Soy sauce"
+      ],
+      "nutritionalValues": {
+        "calories": 300,
+        "fat": 15,
+        "proteins": 20
+      }
+    },
+    {
+      "name": "Simple Pasta",
+      "image": "pictures/simpePasta.jpg",
+      "description": "Easy and delicious pasta dish for a quick meal.",
+      "ingredients": [
+        "Pasta",
+        "Tomato sauce",
+        "Garlic",
+        "Parmesan cheese"
+      ],
+      "nutritionalValues": {
+        "calories": 350,
+        "fat": 10,
+        "proteins": 15
+      }
+    },
+    {
+      "name": "Steak Marinade",
+      "image": "pictures/steak-marinade.jpg",
+      "description": "Flavorful marinade for a juicy and tender steak.",
+      "ingredients": [
+        "Steak",
+        "Soy sauce",
+        "Garlic",
+        "Olive oil",
+        "Herbs"
+      ],
+      "nutritionalValues": {
+        "calories": 600,
+        "fat": 30,
+        "proteins": 40
+      }
+    },
+    {
+      "name": "Sweet Potato and Black Bean Burrito",
+      "image": "pictures/Sweet Potato and Black Bean Burrito.jpeg",
+      "description": "Healthy and satisfying burrito with sweet potatoes and black beans.",
+      "ingredients": [
+        "Sweet potatoes",
+        "Black beans",
+        "Tortillas",
+        "Guacamole"
+      ],
+      "nutritionalValues": {
+        "calories": 400,
+        "fat": 15,
+        "proteins": 15
+      }
+    },
+    {
+      "name": "Tomato Basil Bruschetta",
+      "image": "pictures/TomatoBasilBruschetta.jpeg",
+      "description": "Classic bruschetta with fresh tomatoes and basil.",
+      "ingredients": [
+        "Tomatoes",
+        "Basil",
+        "Garlic",
+        "Bread"
+      ],
+      "nutritionalValues": {
+        "calories": 200,
+        "fat": 10,
+        "proteins": 5
+      }
+    },
+    {
+      "name": "Turkey and Black Bean Chili",
+      "image": "pictures/Turkey and Black Bean Chili.jpeg",
+      "description": "Hearty turkey and black bean chili for a comforting meal.",
+      "ingredients": [
+        "Ground turkey",
+        "Black beans",
+        "Tomatoes",
+        "Chili powder"
+      ],
+      "nutritionalValues": {
+        "calories": 350,
+        "fat": 12,
+        "proteins": 25
+      }
+    },
+    {
+      "name": "Vegan Sushi",
+      "image": "pictures/Vegan-Sushi.webp",
+      "description": "Sushi rolls made with fresh vegetables for a vegan delight.",
+      "ingredients": [
+        "Sushi rice",
+        "Nori sheets",
+        "Cucumber",
+        "Avocado",
+        "Soy sauce"
+      ],
+      "nutritionalValues": {
+        "calories": 250,
+        "fat": 8,
+        "proteins": 10
+      }
+    },
+    {
+      "name": "Waffle",
+      "image": "pictures/waffleBel.jpeg",
+      "description": "Belgian-style waffle for a delightful breakfast.",
+      "ingredients": [
+        "Waffle batter",
+        "Maple syrup",
+        "Berries",
+        "Whipped cream"
+      ],
+      "nutritionalValues": {
+        "calories": 350,
+        "fat": 15,
+        "proteins": 5
+      }
+    },
+    {
+      "name": "Zucchini Noodles with Pesto",
+      "image": "pictures/Zucchini-Noodles-with-Pesto-7.jpg",
+      "description": "Low-carb zucchini noodles with basil pesto sauce.",
+      "ingredients": [
+        "Zucchini",
+        "Pesto",
+        "Cherry tomatoes",
+        "Parmesan cheese"
+      ],
+      "nutritionalValues": {
+        "calories": 300,
+        "fat": 20,
+        "proteins": 10
+      }
+    }
+]
