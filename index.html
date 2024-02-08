@@ -19,7 +19,7 @@
   <nav class="bg-green-400 shadow-md p-3 fixed w-full top-0 z-50">
     <div class="container mx-auto flex justify-between items-center">
       <div class="text-white text-3xl font-bold start-0">
-        Icon will be here
+        Recipe Sharing & Meal Planning
       </div>
       <ul class="sm:flex space-x-8 hidden relative">
         <li>
@@ -34,7 +34,7 @@
             Planner</a>
         </li>
         <li>
-          <a href="#" class="text-white text-xl hover:text-blue-950 duration-200">Shopping Cart</a>
+          <a id="clickForSideBar" class="text-white text-xl hover:text-blue-950 duration-200">Shopping Cart</a>
         </li>
         <li>
           <button id="btnTheme"
@@ -61,8 +61,8 @@
       <p class="text-lg m-4">
         Browse through delicious recipes shared by our community.
       </p>
-      <!-- changed this part, inserted as JavaScript that displays the recipes    -->
 
+     
       <!-- Add Search Bar -->
       <div class="flex items-center mb-1" id="searchBar">
         <input type="text" class="w-96 border rounded p-2 mr-2 text-sm" placeholder="Search for a recipe" />
@@ -75,7 +75,12 @@
       </div>
     </div>
 
+    <!-- changed this part, inserted as JavaScript that displays the recipes    -->
+
     <div class="grid grid-cols-4 gap-8 p-20" id="recipeContainer"></div>
+    
+    <!-- add the options to choose recipe for mealPlanner -->
+    <div id="modalContainer"></div>
 
     <!-- New Recipe Section -->
     <hr class="border-t-2 border-grey my-4 rounded-lg shadow-black p-4" id="newRecipe" />
@@ -96,7 +101,6 @@
         <input type="text" id="newCal" class="w-full border rounded p-2 text-sm text-left" placeholder="Enter Calories" />
         <input type="text" id="newFat" class="w-full border rounded p-2 text-sm text-left" placeholder="Enter Fat (g)" />
         <input type="text" id="newProtein" class="w-full border rounded p-2 text-sm text-left" placeholder="Enter Protein (g)" />
-        <input type="text" class="w-full border rounded p-2 text-sm text-left" placeholder="Enter Carbohydrates (g)" />
       </div>
 
       <!-- Container for File Input -->
@@ -167,17 +171,17 @@
         <button id="closeSideBar" class="absolute top-2 right-2 text-green-800 text-2xl cursor-pointer">×</button>
         <h2 class="text-2xl font-bold mb-4 font-ui text-green-700">Your Daily Meal Planner</h2>
           <ul>
-              <li id="row-Breakfast" class="text-gray-800">Breakfast: Pizza, Rice</li>
-              <li id="row-Lunch" class="text-gray-800">Lunch: Spaghetti</li>
-              <li id="row-Dinner" class="text-gray-800">Dinner: Hamburger</li>
+              <li id="row-Breakfast" class="text-gray-800">Breakfast:</li>
+              <li id="row-Lunch" class="text-gray-800">Lunch:</li>
+              <li id="row-Dinner" class="text-gray-800">Dinner: </li>
           </ul>
           <br>
           <div class="mb-5">
               <h3 class="text-l text-green-800 underline">Nutritional values per day:</h3>
               <ul>
-                  <li id="row-Calories" class="text-gray-800">Calories:</li>
-                  <li id="row-Proteins" class="text-gray-800">Proteins:</li>
-                  <li id="row-Fats" class="text-gray-800">Fats:</li>
+                  <li id="row-Calories" class="text-gray-800"></li>
+                  <li id="row-Proteins" class="text-gray-800"></li>
+                  <li id="row-Fats" class="text-gray-800"></li>
               </ul>
           </div>
           <button  id="getShoppingListBtn" class="bg-green-600 text-white px-2 py-1 rounded">Get Shopping List</button>

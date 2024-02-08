@@ -66,12 +66,19 @@ function createRecipeCardOnDisplay(title, imageSrc, description, ingredients, nu
     titleElement.textContent = title;
 
     const descriptionElement = document.createElement("p");
-    descriptionElement.className = "text-gray-600 text-sm description";
+    descriptionElement.className = "text-gray-600 text-s description";
     descriptionElement.textContent = description;
 
     const addButton = document.createElement("button");
-    addButton.className = "add-to-planner-btn text-green-500 py-1 px-2 mt-1 text-xs border border-green-500 px-3 rounded-full";
+    addButton.className = "add-to-planner-btn text-green-500 py-1 px-2 mt-1 text-xs border border-green-500 px-3 rounded-full w-full max-w-full text-ellipsis whitespace-no-wrap";
     addButton.textContent = "+ Add to Planner";
+    addButton.onclick =
+
+    //firt try to implement the 
+    addButton.addEventListener("click", function () {
+        // Include the call to openModal with necessary arguments
+        openModal(title, ingredients, nutritionalValues);
+    });  //end of it for now.
 
     recipeCard.appendChild(img);
     recipeCard.appendChild(titleElement);
@@ -80,8 +87,86 @@ function createRecipeCardOnDisplay(title, imageSrc, description, ingredients, nu
 
     recipeContainer.appendChild(recipeCard);
 }
+
 // finish the importing
 
+
+//  adding recipe to Plan
+let selectedRecipes = {
+    breakfast: [],
+    lunch: [],
+    dinner: []
+};
+let totalNutritionalValues = {
+    calories: 0,
+    protein: 0,
+    fat: 0
+};
+
+
+  // Function to open meal selection modal
+  function openModal(title, ingredients, nutritionalValues) {
+    const modalContainer = document.getElementById("modalContainer");
+    modalContainer.innerHTML = ''; // Clear previous content
+
+    const modal = document.createElement("div");
+    modal.className = "modal bg-white w-44 p-4 rounded-lg shadow-md fixed top-1/2 left-0";
+
+    const closeButton = document.createElement("button");
+    closeButton.className = "close-modal-btn absolute top-2 left-2 c text-black";
+    closeButton.innerHTML = "x"; // 'x' character
+    closeButton.addEventListener("click", closeModal);
+
+    const modalTitle = document.createElement("div");
+    modalTitle.className = "text-center text-lg font-semibold title mb-2 top";
+    modalTitle.textContent = `Add ${title} to:`;
+
+    modal.appendChild(modalTitle);
+
+    const mealOptions = ["breakfast", "lunch", "dinner"];
+    mealOptions.forEach(meal => {
+        const optionButton = document.createElement("button");
+        optionButton.className = "meal-option-btn text-blue-500 py-1 px-2 mt-1 text-xs border border-blue-500 px-3 rounded-full w-full max-w-full text-ellipsis whitespace-no-wrap";
+        optionButton.textContent = meal.charAt(0).toUpperCase() + meal.slice(1); // Capitalize first letter
+        optionButton.addEventListener("click", function () {
+            addToPlanner(meal, title, ingredients, nutritionalValues);
+            closeModal();
+        });
+        modal.appendChild(optionButton);
+    });
+
+    modal.appendChild(closeButton);
+    modalContainer.appendChild(modal);
+
+
+// Function to add recipe to the planner and update total nutritional values
+function addToPlanner(meal, title, ingredients, nutritionalValues) {
+    selectedRecipes[meal].push({ title, ingredients, nutritionalValues });
+    updateTotalNutritionalValues(nutritionalValues);
+
+    console.log(`Added '${title}' to ${meal}`);
+}
+
+// Function to update total nutritional values
+function updateTotalNutritionalValues(newValues) {
+    totalNutritionalValues.calories += newValues.calories;
+    totalNutritionalValues.protein += newValues.proteins;
+    totalNutritionalValues.fat += newValues.fat;
+    console.log("Updated total nutritional values:", totalNutritionalValues);
+}
+
+// Function to close the modal
+function closeModal() {
+    const modalContainer = document.getElementById("modalContainer");
+    modalContainer.innerHTML = ''; // Clear modal content
+}
+
+
+}
+
+
+
+//  finish first try
 
 
 //popup for recepies
@@ -161,7 +246,8 @@ function openPopup(title, imageSrc, description, ingredients, nutritionalValues)
     const nutritionalValuesList = document.createElement("ul");
     for (const [key, value] of Object.entries(nutritionalValues)) {
         const listItem = document.createElement("li");
-        listItem.textContent = `${key}: ${value}g`;
+        const unit = (key === "fat" || key === "proteins") ? 'g' : '';
+        listItem.textContent = `${key}: ${value}${unit}`;
         nutritionalValuesList.appendChild(listItem);
     }
     nutritionalValuesElement.appendChild(nutritionalValuesList);
@@ -179,6 +265,16 @@ function openPopup(title, imageSrc, description, ingredients, nutritionalValues)
     currentPopupImg = imageSrc;
 }
 // finish the popup
+
+
+
+
+
+
+
+
+
+
 
 
 // try to make the SearchBar works
@@ -316,24 +412,30 @@ document.getElementById("getShoppingListBtn").addEventListener("click", function
 // finish my fake list
 
 
-///adding a new recipe - fixxxxxxxxxxxxx it blattt!!
+
+
+
+
+///adding a new recipe - not working for now! i will fix it.
+
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("submitRecipeBtn").addEventListener("click", function () {
         // Call the function to handle the recipe submission
         submitRecipe();
     });
 });
+
 function submitRecipe() {
     // Get values from input fields
-    const name = document.getElementById("NameNewRecipe").value.trim();
+    const recipeName = document.getElementById("NameNewRecipe").value.trim();
     const ingredients = document.getElementById("IngredientsNewRecipe").value.trim().split('\n');
     const calories = document.getElementById("newCal").value.trim();
     const fat = document.getElementById("newFat").value.trim();
     const protein = document.getElementById("newProtein").value.trim(); // Updated id
-    const carbs = document.getElementById("newCarbs").value.trim();
+    // const carbs = document.getElementById("newCarbs").value.trim();
 
     // Validate input data (add your own validation logic)
-    if (!name || !ingredients || !calories || !fat || !protein || !carbs) {
+    if (!recipeName || !ingredients || !calories || !fat || !protein) {
         alert("Please fill in all the required fields.");
         return;
     }
@@ -353,7 +455,7 @@ function submitRecipe() {
     formData.append("recipeImage", file, file.name);
 
     // Upload the file to the "pictures/" folder
-    fetch("/uploadRecipeImage", {
+    fetch("/rcipesInfo.json", {
         method: "POST",
         body: formData,
     })
@@ -364,15 +466,14 @@ function submitRecipe() {
 
         // Create a new recipe object
         const newRecipe = {
-            name: name,
+            name: recipeName,
             ingredients: ingredients,
             nutritionalValues: {
                 calories: calories,
                 fat: fat,
                 protein: protein,
-                carbs: carbs,
             },
-            image: "pictures/" + file.name, // Update with the correct path
+            image: "/pictures/" + file.name, // Update with the correct path
         };
 
         // Add the new recipe to the recipes array (assuming 'recipes' is a global variable)
@@ -389,8 +490,6 @@ function submitRecipe() {
         document.getElementById("newCal").value = "";
         document.getElementById("newFat").value = "";
         document.getElementById("newProtein").value = "";
-        document.getElementById("newCarbs").value = "";
-
         alert("Recipe submitted successfully!");
     })
     .catch(error => console.error("Error uploading image:", error));
@@ -398,4 +497,4 @@ function submitRecipe() {
 /// i have to fix it!!!!!!!!!!!!!!!
 
 
-window.addEventListener('scroll', highlightMenu);
+// window.addEventListener('scroll', highlightMenu);
