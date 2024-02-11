@@ -72,7 +72,7 @@ function createRecipeCardOnDisplay(title, imageSrc, description, ingredients, nu
     const addButton = document.createElement("button");
     addButton.className = "add-to-planner-btn text-green-500 py-1 px-2 mt-1 text-xs border border-green-500 px-3 rounded-full w-full max-w-full text-ellipsis whitespace-no-wrap";
     addButton.textContent = "+ Add to Planner";
-    addButton.onclick =
+
 
     //firt try to implement the 
     addButton.addEventListener("click", function () {
@@ -494,7 +494,7 @@ function submitRecipe() {
     })
     .catch(error => console.error("Error uploading image:", error));
 }
-/// i have to fix it!!!!!!!!!!!!!!!
+/// fix
 
 
 // window.addEventListener('scroll', highlightMenu);

@@ -30,7 +30,7 @@
             Recipe</a>
         </li>
         <li>
-          <a href="#mealPlanner" class="text-white text-xl hover:text-blue-950 duration-200" id="mealPlanner-page">Meal
+          <a href="#banner" class="text-white text-xl hover:text-blue-950 duration-200" id="mealPlanner-page">Meal
             Planner</a>
         </li>
         <li>
@@ -120,43 +120,106 @@
 
     <!-- Banner Section -->
     <div class="bg-gradient-to-br from-green-400 to-green-500 mt-6 text-center p-4 banner-section">
-      <div class="container mx-auto">
+      <div class="container mx-auto" id="banner">
         <div class="text-2xl font-bold mb-4 text-white">
           Did you know? Apples are more effective than coffee at waking you up in the morning.
         </div>
       </div>
     </div>
 
+
+
+    <!--  -->
+    <div>
+      <div class="text-3xl font-bold px-2">Manage your Meal Planner</div>
+        <table class="w-full bg-white border border-gray-300 rounded shadow-md">
+          <thead>
+            <tr class="bg-gray-200">
+              <th class="py-2 px-4 text-left">Meal</th>
+              <th class="py-2 px-4 text-left">Recipe</th>
+              <th class="py-2 px-4 text-left">Ingredients</th>
+              <th class="py-2 px-4 text-left">Calories</th>
+              <th class="py-2 px-4 text-left">Proteins</th>
+              <th class="py-2 px-4 text-left">Fats</th>
+            </tr>
+          </thead>
+          <tbody>
+      
+            <!-- Breakfast -->
+            <div class="py-2 px-4 font-semibold border-b"></div>
+            <tr>
+              <td class="py-2 px-4 font-semibold">Breakfast</td>
+              <td class="py-2 px-4">Omelet</td>
+              <td class="py-2 px-4">Eggs</td>
+              <td class="py-2 px-4">300</td>
+              <td class="py-2 px-4">15g</td>
+              <td class="py-2 px-4">20g</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4"></td>
+              <td class="py-2 px-4">Green Salad</td>
+              <td class="py-2 px-4">Cucumber, Tomato, Onion</td>
+              <td class="py-2 px-4">150</td>
+              <td class="py-2 px-4">5g</td>
+              <td class="py-2 px-4">10g</td>
+            </tr>
+      
+            <!-- Lunch (Add rows as needed) -->
+            <tr class="border-t-2">
+              <td class="py-2 px-4 font-semibold ">Lunch</td>
+              <td class="py-2 px-4">Pizza Margherita</td>
+              <td class="py-2 px-4">Dough, Tomatoes, Mozzarella cheese, Olive oil, Basil</td>
+              <td class="py-2 px-4">800</td>
+              <td class="py-2 px-4">20g</td>
+              <td class="py-2 px-4">18g</td>
+            </tr>
+      
+            <!-- Dinner (Add rows as needed) -->
+            <tr class="border-t-2">
+              <td class="py-2 px-4 font-semibold">Dinner</td>
+              <td class="py-2 px-4">Chicken Breast</td>
+              <td class="py-2 px-4">Chicken breast, Olive oil, Garlic, Herbs and spices</td>
+              <td class="py-2 px-4">400</td>
+              <td class="py-2 px-4">8g</td>
+              <td class="py-2 px-4">60g</td>
+            </tr>
+      
+          </tbody>
+        </table>
+  </div>
+    <!--  -->
+
     <!-- Meal Planner Section -->
-    <div id="mealPlanner" class="mt-6 text-center bg-white p-20 rounded-lg shadow-md grid justify-items-center">
+    <div id="mealPlannerToChange" class="mt-6 text-center bg-white p-20 rounded-lg shadow-md grid justify-items-center">
       <div class="text-3xl font-bold mb-2">Meal Planner</div>
       <p class="text-gray-600">Plan your meals for the day.</p>
 
+  
       <!-- Breakfast Section -->
       <div class="mt-6 border-b border-gray-300 pb-4">
-        <div class="text-xl font-semibold mb-2">Breakfast</div>
+        <div class="text-xl font-semibold mb-2">Breakfast:</div>
         <!-- Button to Add Breakfast Meal -->
-        <button class="text-lg font-bold p-2 bg-green-500 text-white rounded-lg shadow-md mb-2">
-          Add Breakfast
-        </button>
+        <!-- <button class="text-lg font-bold p-2 bg-green-500 text-white rounded-lg shadow-md mb-2"> -->
+          <!-- Add Breakfast -->
+        <!-- </button> -->
       </div>
 
       <!-- Lunch Section -->
       <div class="mt-6 border-b border-gray-300 pb-4">
-        <div class="text-xl font-semibold mb-2">Lunch</div>
+        <div class="text-xl font-semibold mb-2">Lunch:</div>
         <!-- Button to Add Lunch Meal -->
-        <button class="text-lg font-bold p-2 bg-green-500 text-white rounded-lg shadow-md mb-2">
-          Add Lunch
-        </button>
+        <!-- <button class="text-lg font-bold p-2 bg-green-500 text-white rounded-lg shadow-md mb-2"> -->
+          <!-- Add Lunch -->
+        <!-- </button> -->
       </div>
 
       <!-- Dinner Section -->
       <div class="mt-6">
-        <div class="text-xl font-semibold mb-2">Dinner</div>
+        <div class="text-xl font-semibold mb-2">Dinner:</div>
         <!-- Button to Add Dinner Meal -->
-        <button class="text-lg font-bold p-2 bg-green-500 text-white rounded-lg shadow-md mb-2">
-          Add Dinner
-        </button>
+        <!-- <button class="text-lg font-bold p-2 bg-green-500 text-white rounded-lg shadow-md mb-2"> -->
+          <!-- Add Dinner -->
+        <!-- </button> -->
       </div>
       
     </div>
@@ -171,7 +234,7 @@
         <button id="closeSideBar" class="absolute top-2 right-2 text-green-800 text-2xl cursor-pointer">×</button>
         <h2 class="text-2xl font-bold mb-4 font-ui text-green-700">Your Daily Meal Planner</h2>
           <ul>
-              <li id="row-Breakfast" class="text-gray-800">Breakfast:</li>
+              <li id="row-Breakfast" class="text-gray-800">Breakfast: Pizza Margherita, Fries, Grilled Chicken Salad, Hot Dog</li>
               <li id="row-Lunch" class="text-gray-800">Lunch:</li>
               <li id="row-Dinner" class="text-gray-800">Dinner: </li>
           </ul>
