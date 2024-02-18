@@ -25,14 +25,46 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  
+  // Show active menu when scrolling
+const highlightMenu = () => {
+    const elem = document.querySelector('.highlight');
+    const homeMenu = document.querySelector('#home-page');
+    const newRecipeMenu = document.querySelector('#newRecipe-page');
+    const mealPlannerMenu = document.querySelector('#mealPlanner-page');
+    let scrollPos = window.scrollY;
+    // console.log(scrollPos); 
+    // used to find the correct values for scrollPos (try to run it on your browser's console)
+
+    // adds 'highlight' class to menu items
+    if (scrollPos < 750) {
+        homeMenu.classList.add('border-b-2', 'border-green-700');
+        newRecipeMenu.classList.remove('border-b-2', 'border-green-700');
+        return;
+    } else if (scrollPos < 1700) {
+        newRecipeMenu.classList.add('border-b-2', 'border-green-700');
+        homeMenu.classList.remove('border-b-2', 'border-green-700');
+        mealPlannerMenu.classList.remove('border-b-2', 'border-green-700');
+        return;
+    } else if (scrollPos < 2345) {
+        mealPlannerMenu.classList.add('border-b-2', 'border-green-700');
+        newRecipeMenu.classList.remove('border-b-2', 'border-green-700');
+        return;
+    }
+};
+
 
 
 
 let recipes = [];
+const apiUrl = "localhost:3000/api"
+const recipesUrl = apiUrl + "/recipes"
+
 //  ---import fake data from json
 document.addEventListener("DOMContentLoaded", function () {
  // Load recipes from JSON file
- fetch('rcipesInfo.json')
+ fetch('recipesInfo.json')
+// fetch(recipesUrl)
  .then(response => response.json())
  .then(data => {
     recipes = data;
@@ -434,6 +466,7 @@ function submitRecipe() {
     const protein = document.getElementById("newProtein").value.trim(); // Updated id
     // const carbs = document.getElementById("newCarbs").value.trim();
 
+
     // Validate input data (add your own validation logic)
     if (!recipeName || !ingredients || !calories || !fat || !protein) {
         alert("Please fill in all the required fields.");
@@ -455,7 +488,7 @@ function submitRecipe() {
     formData.append("recipeImage", file, file.name);
 
     // Upload the file to the "pictures/" folder
-    fetch("/rcipesInfo.json", {
+    fetch("/recipesInfo.json", {
         method: "POST",
         body: formData,
     })
@@ -497,4 +530,4 @@ function submitRecipe() {
 /// fix
 
 
-// window.addEventListener('scroll', highlightMenu);
+window.addEventListener('scroll', highlightMenu);
