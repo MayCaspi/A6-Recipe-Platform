@@ -27,7 +27,14 @@ try {
   console.error('Error reading existing users:', error);
 }
 
-const allUsers = existingUsers.concat(newUsers);
+// Filter out duplicate users by username
+const filteredNewUsers = newUsers.filter(newUser => {
+  return !existingUsers.some(existingUser => existingUser.username === newUser.username);
+});
+
+// Combine existing users with filtered new users
+const allUsers = existingUsers.concat(filteredNewUsers);
+
 try{
 // Write the updated array of users back to the users.json file
 fs.writeFileSync('users.json', JSON.stringify(allUsers, null, 2));
