@@ -24,7 +24,10 @@ $(document).ready(function() {
             const user = data.find(u => u.username === encryptedUsername && u.password === encryptedPassword);
             if (user) {
                 alert('Login successful');
-                window.location.href = '../index.html'; // Redirect to main page
+                $('body').fadeOut(1000, function() {
+                    window.location.href = '../index.html'; // Redirect to main page
+                });
+                
             } else {
                 alert('Invalid username or password');
             }
