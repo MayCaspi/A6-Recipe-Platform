@@ -1,10 +1,6 @@
 function createNav()
 {
-    var navBar = document.createElement('nav');
-
-    // Set the attributes for the nav element
-    navBar.classList.add('bg-green-400', 'shadow-md', 'p-3', 'fixed', 'w-full', 'top-0', 'z-50');
-    navBar.id = 'navBar';
+    var navBar = document.getElementById('navBar');
 
     // navBar = document.getElementById('navBar')
         // Create main container div

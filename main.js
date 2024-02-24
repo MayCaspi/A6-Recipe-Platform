@@ -1,8 +1,10 @@
 import { createNav } from "./navigationBar";
+import { createRecipe } from "./addRecipe";
 
 
 document.addEventListener("DOMContentLoaded",function(){
     createNav()
+    createRecipe()
 })
 
 document.addEventListener("DOMContentLoaded", function () {
