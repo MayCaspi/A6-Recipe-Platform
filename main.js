@@ -1,10 +1,16 @@
 import { createNav } from "./navigationBar";
-import { createRecipe } from "./addRecipe";
+import { createSearchBar } from "./searchBar";
+import { createNewRecipe } from "./addRecipe";
+import {createMealPlannerTable} from "./mealPlanner";
+// import {createQuickViewMealPlan}from "./quickViewSideBar";
 
 
 document.addEventListener("DOMContentLoaded",function(){
     createNav()
-    createRecipe()
+    createSearchBar()
+    createNewRecipe()
+    createMealPlannerTable()
+    // createQuickViewMealPlan()
 })
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -452,9 +458,6 @@ document.getElementById("getShoppingListBtn").addEventListener("click", function
 
 
 // finish my fake list
-
-
-
 
 
 

@@ -1,4 +1,4 @@
-  function createRecipe()
+  function createNewRecipe()
   {
     // Create the new recipe form container
     const newRecipeContainer = document.getElementById('newRecipe');
@@ -53,7 +53,7 @@
   
     // Container for File Input
     const fileInputContainer = document.createElement('div');
-    fileInputContainer.classList.add('flex', 'items-center', 'w-1/3', 'mt-2', 'mb-10');
+    fileInputContainer.classList.add('flex', 'items-center', 'w-1/3', 'mt-2', 'mb-4');
   
     const labelForImage = document.createElement('label');
     labelForImage.classList.add('cursor-pointer', 'bg-gray-200', 'text-gray-700', 'px-4', 'py-2', 'rounded-md');
@@ -74,7 +74,7 @@
     // Button to Add a New Recipe
     const submitButton = document.createElement('button');
     submitButton.id = 'submitRecipeBtn';
-    submitButton.classList.add('text-2xl', 'font-bold', 'p-4', 'bg-green-500', 'text-white', 'rounded-lg', 'shadow-md', 'mb-4', 'mx-auto', 'block', 'mt-2');
+    submitButton.classList.add('text-2xl', 'font-bold', 'p-4', 'bg-green-500', 'text-white', 'rounded-lg', 'shadow-md', 'mb-4', 'mx-auto', 'block');
     submitButton.textContent = 'Submit Recipe';
   
     newRecipeDiv.appendChild(submitButton);
@@ -96,4 +96,4 @@
     return input;
   }
 
-  export{createRecipe}
+  export{createNewRecipe}

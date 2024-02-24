@@ -1,8 +1,6 @@
 function createNav()
 {
     var navBar = document.getElementById('navBar');
-
-    // navBar = document.getElementById('navBar')
         // Create main container div
     var containerDiv = document.createElement('div');
     containerDiv.classList.add('container', 'mx-auto', 'flex', 'justify-between', 'items-center');
