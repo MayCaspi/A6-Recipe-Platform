@@ -2,7 +2,7 @@ import { openModal } from "./mealPlanner.js";
 
 export function createRecipeCardOnDisplay(title, imageSrc, description, ingredients, nutritionalValues, preparation, openPopup) {
     const recipeContainer = document.getElementById("recipeContainer");
-    recipeContainer.classList.add('grid', 'grid-cols-1', 'p-6', 'md:grid-cols-4', 'md:gap-8');
+    recipeContainer.classList.add('grid', 'grid-cols-1', 'p-6', 'md:grid-cols-4', 'gap-8');
 
     const recipeCard = document.createElement("div");
     recipeCard.className = "bg-white rounded-lg shadow-md hover:scale-110 transition duration-500 recipe-card";
