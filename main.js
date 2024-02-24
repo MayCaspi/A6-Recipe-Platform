@@ -1,3 +1,10 @@
+import { createNav } from "./navigationBar";
+
+
+document.addEventListener("DOMContentLoaded",function(){
+    createNav()
+})
+
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("btnTheme").addEventListener("click", function () {
         document.documentElement.classList.toggle("dark");
@@ -33,6 +40,7 @@ const highlightMenu = () => {
     const newRecipeMenu = document.querySelector('#newRecipe-page');
     const mealPlannerMenu = document.querySelector('#mealPlanner-page');
     let scrollPos = window.scrollY;
+    console.log(scrollPos)
     // console.log(scrollPos); 
     // used to find the correct values for scrollPos (try to run it on your browser's console)
 
