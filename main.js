@@ -10,7 +10,10 @@ import {createBanner} from "./banner";
 import {createMealPlannerTable} from "./mealPlanner";
 =======
 import { createNewRecipe } from "./addRecipe";
+import {createBanner} from "./banner";
 import {createMealPlannerTable} from "./mealPlanner";
+
+
 // import {createQuickViewMealPlan}from "./quickViewSideBar";
 
 >>>>>>> 4e41562 (splitted html to js files)
@@ -20,6 +23,7 @@ document.addEventListener("DOMContentLoaded",function(){
     createSearchBar()
     createNewRecipe()
 <<<<<<< HEAD
+<<<<<<< HEAD
     createBanner()
     createMealPlannerTable()
 =======
@@ -28,11 +32,75 @@ document.addEventListener("DOMContentLoaded",function(){
 >>>>>>> 4e41562 (splitted html to js files)
 })
 
+=======
+    createBanner()
+    createMealPlannerTable()
+})
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("btnTheme").addEventListener("click", function () {
+        document.documentElement.classList.toggle("dark");
+        document.getElementById("btnTheme").innerText = document.documentElement
+            .classList.contains("dark") ? "light" : "dark"
+    })
+    document.getElementById("btnMenu").addEventListener("click", function () {
+        document.getElementById("popUp").classList.toggle("hidden")
+    })
+})
+
+
+
+// add eventer for the meal planner fast view
+document.addEventListener("DOMContentLoaded", function () {
+    var mealPlanDetails = document.getElementById('mealPlanSideBar');
+    var closeSideBarBtn = document.getElementById('closeSideBar');
+  
+    document.getElementById("clickForSideBar").addEventListener("click", function () {
+      mealPlanDetails.classList.toggle('hidden');
+    });
+  
+    closeSideBarBtn.addEventListener("click", function () {
+      mealPlanDetails.classList.add('hidden');
+    });
+  });
+
+  
+  // Show active menu when scrolling
+const highlightMenu = () => {
+    const elem = document.querySelector('.highlight');
+    const homeMenu = document.querySelector('#home-page');
+    const newRecipeMenu = document.querySelector('#newRecipe-page');
+    const mealPlannerMenu = document.querySelector('#mealPlanner-page');
+    let scrollPos = window.scrollY;
+    console.log(scrollPos)
+    // console.log(scrollPos); 
+    // used to find the correct values for scrollPos (try to run it on your browser's console)
+
+    // adds 'highlight' class to menu items
+    if (scrollPos < 750) {
+        homeMenu.classList.add('border-b-2', 'border-green-700');
+        newRecipeMenu.classList.remove('border-b-2', 'border-green-700');
+        return;
+    } else if (scrollPos < 1700) {
+        newRecipeMenu.classList.add('border-b-2', 'border-green-700');
+        homeMenu.classList.remove('border-b-2', 'border-green-700');
+        mealPlannerMenu.classList.remove('border-b-2', 'border-green-700');
+        return;
+    } else if (scrollPos < 2345) {
+        mealPlannerMenu.classList.add('border-b-2', 'border-green-700');
+        newRecipeMenu.classList.remove('border-b-2', 'border-green-700');
+        return;
+    }
+};
+
+>>>>>>> 594718b (fixed html)
 
 
 
 let recipes = [];
 document.addEventListener("DOMContentLoaded", function () {
+<<<<<<< HEAD
     // Load recipes from Firestore database
     const recipesCollection = collection(db, 'recipe');
 
@@ -40,6 +108,38 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(querySnapshot => {
             querySnapshot.forEach(doc => {
                 const recipe = doc.data(); // Get the data of the recipe document
+=======
+ // Load recipes from JSON file
+ fetch('recipesInfo.json')
+// fetch(recipesUrl)
+ .then(response => response.json())
+ .then(data => {
+    recipes = data;
+     // Create recipe cards dynamically
+     recipes.slice(0, 8).forEach(recipe => {
+        createRecipeCardOnDisplay(recipe.name, recipe.image, recipe.description,recipe.ingredients, recipe.nutritionalValues);
+     });
+ })
+ .catch(error => console.error('Error fetching recipes:', error));
+});
+
+//create the recipes cards for the display
+function createRecipeCardOnDisplay(title, imageSrc, description, ingredients, nutritionalValues) {
+    const recipeContainer = document.getElementById("recipeContainer");
+    recipeContainer.classList.add('grid', 'grid-cols-4', 'gap-8', 'p-20');
+    const recipeCard = document.createElement("div");
+    recipeCard.className = "bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500 recipe-card";
+
+    const img = document.createElement("img");
+    img.src = imageSrc;
+    img.alt = title;
+    img.className = "w-full h-64 object-cover rounded-md mb-4";
+
+    img.addEventListener("click", function () {
+        // Include the call to openPopup with necessary arguments
+        openPopup(title, imageSrc, description, ingredients, nutritionalValues);
+    });
+>>>>>>> 594718b (fixed html)
 
                 // Push each recipe into the recipes array
                 recipes.push(recipe);

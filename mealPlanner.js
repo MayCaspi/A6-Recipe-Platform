@@ -272,7 +272,11 @@ function createMobileMealPlannerTable() {
 =======
 function createMealPlannerTable() {
     const mealPlannerContainer = document.getElementById('mealPlanner');
+<<<<<<< HEAD
 >>>>>>> 4e41562 (splitted html to js files)
+=======
+    mealPlannerContainer.classList.add('text-3xl', 'font-bold', 'px-2')
+>>>>>>> 594718b (fixed html)
     const mealPlannerDiv = document.createElement('div');
     mealPlannerDiv.classList.add('text-xl', 'font-bold', 'px-2');
 
