@@ -1,30 +1,33 @@
-const express = require('express')
-const mongoose = require('mongoose')
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, getDocs, addDoc, QuerySnapshot } from "firebase/firestore";
 
-// The rest of your code remains the same...
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCoujAC2aTL0MUuzMXV0Gx-lERYAUFFOko",
+  authDomain: "webproject-58141.firebaseapp.com",
+  projectId: "webproject-58141",
+  storageBucket: "webproject-58141.appspot.com",
+  messagingSenderId: "275846045858",
+  appId: "1:275846045858:web:3a146d9d6cb093b431f7fb",
+  measurementId: "G-L6NQ0L94R5"
+};
 
-const app = express();
-const port = 3000;
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-// Middleware to parse JSON in requests
-app.use(express.json());
+// Export the db instance
+export { db };
 
-const mongoURI = 'mongodb+srv://maycaspi:Aa123456@recipeapi.m3qrh15.mongodb.net/?retryWrites=true&w=majority'; // replace with your MongoDB connection string
-const dbName = 'recipeAPI'; // replace with your database name
+// const root = collection(db, 'recipe');
 
-let db;
-async function connect(){
-  try{
-    await mongoose.connect(mongoURI)
-    console.log("connected to MongoDB");
-  }catch(error){
-    console.log("error");
-  }
-}
-
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
-
-connect();
+// getDocs(root)
+//   .then(querySnapshot => {
+//     querySnapshot.forEach(doc => {
+//       const data = doc.data(); // Get the data of the document
+//       console.log(`Name: ${data.name}, Description: ${data.description}`);
+//     });
+//   })
+//   .catch(err => {
+//     console.error('Error getting documents', err);
+//   });

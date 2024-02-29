@@ -2,7 +2,7 @@ function createSearchBar(){
     // Create the search bar container
     const searchBarContainer = document.getElementById('searchBar');
     const searchBarDiv = document.createElement('div');
-    searchBarDiv.classList.add('flex', 'items-center', 'mb-1');
+    searchBarDiv.classList.add('flex', 'items-center');
   
     // Create and append the inner HTML
     const searchInput = createInput('', 'w-96', 'Search for a recipe');

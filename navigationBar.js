@@ -78,6 +78,18 @@ function createNav()
     // Append the nav element to the body
     document.body.appendChild(navBar); 
 
+
+    window.onload = function () {
+        document.getElementById("btnTheme").addEventListener("click", function () {
+            document.documentElement.classList.toggle("dark");
+            document.getElementById("btnTheme").innerText = document.documentElement
+                .classList.contains("dark") ? "light" : "dark";
+        });
+
+        document.getElementById("btnMenu").addEventListener("click", function () {
+            document.getElementById("popUp").classList.toggle("hidden");
+        });
+    };
 }
 
 
