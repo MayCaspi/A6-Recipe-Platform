@@ -61,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 recipes.push(recipe);
             });
             // Create recipe cards dynamically
+            recipes.sort(() => Math.random() - 0.5);
             recipes.slice(0, 8).forEach(recipe => {
                 createRecipeCardOnDisplay(recipe.name, recipe.image, recipe.description, recipe.ingredients, recipe.nutritionalValues, recipe.preparation);
             })
@@ -83,7 +84,6 @@ let totalNutritionalValues = {
 };
 
 
-// try to make the SearchBar works
 document.addEventListener("DOMContentLoaded", function () {
     // Add input event listener to update recipes dynamically while typing or when input is cleared
     const searchInput = document.querySelector("#searchBar input");
@@ -96,7 +96,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const lowerCaseName = recipe.name.toLowerCase();
             return lowerCaseName.includes(searchText);
         });
-
         // Display up to 8 recipes based on the search result or show all recipes if the search text is empty
         displayRecipes(filteredRecipes.slice(0, 8));
     });
