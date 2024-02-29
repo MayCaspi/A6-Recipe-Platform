@@ -3,7 +3,7 @@ function createNav()
     var navBar = document.getElementById('navBar');
         // Create main container div
     var containerDiv = document.createElement('div');
-    containerDiv.classList.add('container', 'mx-auto', 'flex', 'justify-between', 'items-center');
+    containerDiv.classList.add('mx-auto', 'flex', 'justify-between', 'items-center', 'py-3', 'bg-green-400', 'shadow-md', 'fixed', 'w-full', 'top-0', 'z-50');
 
     // Create div for the title
     var titleDiv = document.createElement('div');
@@ -28,7 +28,7 @@ function createNav()
         if (item.text === 'dark') {
             var buttonElement = document.createElement('button');
             buttonElement.id = item.id;
-            buttonElement.classList.add('text-white', 'text-xl', 'hover:text-blue-950', 'duration-200', 'border', 'border-white', 'px-3', 'rounded-full');
+            buttonElement.classList.add('text-white', 'text-xl', 'hover:text-blue-950', 'duration-200', 'border', 'border-white', 'mx-2', 'px-3', 'rounded-full');
             buttonElement.textContent = item.text;
             liElement.appendChild(buttonElement);
         } else {
@@ -79,5 +79,8 @@ function createNav()
     document.body.appendChild(navBar); 
 
 }
+
+
+
 
 export {createNav}

@@ -1,5 +1,6 @@
 function createMealPlannerTable() {
     const mealPlannerContainer = document.getElementById('mealPlanner');
+    mealPlannerContainer.classList.add('text-3xl', 'font-bold', 'px-2')
     const mealPlannerDiv = document.createElement('div');
     mealPlannerDiv.classList.add('text-xl', 'font-bold', 'px-2');
 

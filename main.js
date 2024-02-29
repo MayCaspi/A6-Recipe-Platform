@@ -1,7 +1,10 @@
 import { createNav } from "./navigationBar";
 import { createSearchBar } from "./searchBar";
 import { createNewRecipe } from "./addRecipe";
+import {createBanner} from "./banner";
 import {createMealPlannerTable} from "./mealPlanner";
+
+
 // import {createQuickViewMealPlan}from "./quickViewSideBar";
 
 
@@ -9,9 +12,10 @@ document.addEventListener("DOMContentLoaded",function(){
     createNav()
     createSearchBar()
     createNewRecipe()
+    createBanner()
     createMealPlannerTable()
-    // createQuickViewMealPlan()
 })
+
 
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("btnTheme").addEventListener("click", function () {
@@ -95,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //create the recipes cards for the display
 function createRecipeCardOnDisplay(title, imageSrc, description, ingredients, nutritionalValues) {
     const recipeContainer = document.getElementById("recipeContainer");
-
+    recipeContainer.classList.add('grid', 'grid-cols-4', 'gap-8', 'p-20');
     const recipeCard = document.createElement("div");
     recipeCard.className = "bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500 recipe-card";
 
