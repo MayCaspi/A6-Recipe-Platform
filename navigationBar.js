@@ -19,7 +19,7 @@ function createNav()
         { text: 'Home', href: '#Home', id:'home-page' },
         { text: 'New Recipe', href: '#newRecipe',id:'newRecipe-page' },
         { text: 'Meal Planner', href: '#banner',id:'mealPlanner-page' },
-        { text: 'Shopping Cart', id:'clickForSideBar'},
+        { text: 'Shopping Cart',href:'#Home', id:'shopping-cart'},
         { text: 'dark', id: 'btnTheme' }
     ];
 

@@ -18,14 +18,14 @@ $(document).ready(function() {
 
 
         // Fetch user data from local storage (or local file)
-        $.getJSON('users.json', function(data) {
+        $.getJSON('LoginFolder/users.json', function(data) {
             console.log(data)
             // Decrypt and check if user exists
             const user = data.find(u => u.username === encryptedUsername && u.password === encryptedPassword);
             if (user) {
                 alert('Login successful');
                 $('body').fadeOut(1000, function() {
-                    window.location.href = '../index.html'; // Redirect to main page
+                    window.location.href = '../mainScreen.html'; // Redirect to main page
                 });
                 
             } else {
