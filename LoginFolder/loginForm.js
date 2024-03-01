@@ -1,77 +1,74 @@
 function loginForm() {
-    // Create container element
+    
     var container = document.createElement('div');
     container.id = 'container';
     container.style.display = 'flex';
-    container.style.width = '80%';
+    container.style.alignItems = 'center';
+    container.style.justifyContent = 'center';
+    container.style.maxWidth = '1500px'; // Increased max width
     container.style.margin = 'auto';
+    container.style.marginTop = '100px';
+    container.style.backgroundColor = '#fff';
+    container.style.boxShadow = '0 4px 20px 0 rgba(0,0,0,0.2)';
+    container.style.overflow = 'hidden';
+    container.style.height = '700px'; // Set a fixed height for the container
+    container.style.alignContent = 'center';
+    container.style.borderRadius = '10px';
+
 
     // Create left side (for image)
     var leftSide = document.createElement('div');
     leftSide.id = 'leftSide';
-    leftSide.style.flex = '1';
-    leftSide.style.padding = '3px';
-    leftSide.style.marginRight = '50px';
+    leftSide.style.width = '70%';
+    leftSide.style.position = 'relative';
 
-    // Insert image tag with your picture URL
+    // Insert image
     var image = document.createElement('img');
     image.src = 'https://www.eatingwell.com/thmb/m5xUzIOmhWSoXZnY-oZcO9SdArQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/article_291139_the-top-10-healthiest-foods-for-kids_-02-4b745e57928c4786a61b47d8ba920058.jpg';
-    image.alt = 'Your Image';
-    image.style.width = '100%'; // Adjusted width
-    image.style.maxHeight = '100%';
-    image.style.borderRadius = '15px';
+    image.alt = 'Welcome Image';
+    image.style.width = '950px';
+    image.style.height = '750px';
 
     leftSide.appendChild(image);
 
-    // Create right side (for title and login form)
+    // Create right side (for form)
     var rightSide = document.createElement('div');
     rightSide.id = 'rightSide';
-    rightSide.style.borderRadius = '8px';
+    rightSide.style.width = '50%';
+    rightSide.style.backgroundColor = '#fff';
     rightSide.style.display = 'flex';
-    rightSide.style.flexDirection = 'column'; // Set flex direction to column
+    rightSide.style.flexDirection = 'column';
+    rightSide.style.justifyContent = 'center';
     rightSide.style.alignItems = 'center';
-    rightSide.style.justifyContent = 'center'
+    rightSide.style.padding = '40px';
 
-    // Create login form
+    // Title
+    var title = document.createElement('h2');
+    title.textContent = 'User Login';
+    title.style.textAlign = 'center';
+    title.style.marginBottom = '20px';
+    title.style.color = '#595959';
+    document.body.style.fontFamily = " Josefin Sans, sans-serif";
+    rightSide.appendChild(title);
+
+    // Form
     var form = document.createElement('form');
     form.id = 'loginForm';
-    form.style.width = '300px';
-    form.style.boxShadow = '0 0 8px rgba(0, 0, 0, 0.5)';
+    form.style.width = '80%';
 
-    // Create username label and input
-    var usernameLabel = createInputLabel('Username', 'username');
-    var usernameInput = createInput('text', 'username', 'Enter your username', true);
+    // Username Input
+    var usernameInput = createInput('text', 'username', 'Enter your username');
+    
+    // Password Input
+    var passwordInput = createInput('password', 'password', 'Enter your password');
 
-    // Create password label and input
-    var passwordLabel = createInputLabel('Password', 'password');
-    var passwordInput = createInput('password', 'password', 'Enter your password', true);
-
-    // Create submit button
-    var submitButton = document.createElement('input');
-    submitButton.type = 'submit';
-    submitButton.value = 'Login';
-    submitButton.style.backgroundColor = '#4caf50';
-    submitButton.style.color = '#fff';
-    submitButton.style.cursor = 'pointer';
-
-    // Create "I forgot my password" button
-    var forgotPasswordButton = createButton('Forgot Password', 'forgotPasswordButton');
-
-    // Create "New user - create an account" button
-    var createAccountButton = createButton('New user - Create an Account', 'createAccountButton');
+    // Submit Button
+    var submitButton = createButton('Login', 'submit');
 
     // Append elements to form
-    form.appendChild(usernameLabel);
     form.appendChild(usernameInput);
-    form.appendChild(document.createElement('br'));
-    form.appendChild(passwordLabel);
     form.appendChild(passwordInput);
-    form.appendChild(document.createElement('br'));
     form.appendChild(submitButton);
-    form.appendChild(document.createElement('br')); // Added space
-    form.appendChild(forgotPasswordButton);
-    form.appendChild(document.createElement('br')); // Added space
-    form.appendChild(createAccountButton);
 
     // Append form to right side
     rightSide.appendChild(form);
@@ -82,42 +79,44 @@ function loginForm() {
 
     // Append container to body
     document.body.appendChild(container);
+    document.body.style.margin = '0'; // Remove default margin
+    document.body.style.height = '100vh'; // Full viewport height
+    document.body.style.display = 'flex'; 
+    document.body.style.alignItems = 'center';
+    document.body.style.justifyContent = 'center';
+    // Radial gradient from center to the edges
+    document.body.style.backgroundImage = 'radial-gradient(circle at center, hsl(60, 70%, 80%), hsl(120, 70%, 80%) 100%)'
 }
 
-// Helper function to create button
-function createButton(text, id) {
-    var button = document.createElement('button');
-    button.textContent = text;
-    button.id = id;
-    button.style.cursor = 'pointer';
-    button.style.marginTop = '8px'; // Added space
-    return button;
-}
-
-// Helper function to create input label
-function createInputLabel(text, htmlFor) {
-    var label = document.createElement('label');
-    label.textContent = text;
-    label.htmlFor = htmlFor;
-    label.style.display = 'block';
-    label.style.marginBottom = '8px';
-    return label;
-}
-
-// Helper function to create input element
-function createInput(type, id, placeholder, required) {
+// Helper function to create input elements
+function createInput(type, id, placeholder) {
     var input = document.createElement('input');
     input.type = type;
     input.id = id;
     input.placeholder = placeholder;
-    input.required = required;
+    input.required = true;
     input.style.width = '100%';
-    input.style.padding = '8px';
-    input.style.marginBottom = '16px';
-    input.style.boxSizing = 'border-box';
-    input.style.border = '1px solid #ccc';
-    input.style.borderRadius = '4px';
+    input.style.padding = '10px';
+    input.style.marginBottom = '15px';
+    input.style.borderRadius = '5px';
+    input.style.border = '1px solid #ddd';
     return input;
 }
 
+// Helper function to create button
+function createButton(value, id) {
+    var button = document.createElement('input');
+    button.type = 'submit';
+    button.id = id;
+    button.value = value;
+    button.style.width = '100%';
+    button.style.padding = '10px';
+    button.style.borderRadius = '5px';
+    button.style.border = 'none';
+    button.style.backgroundColor = '#green-500';
+    button.style.color = 'white';
+    button.style.marginTop = '10px';
+    button.style.cursor = 'pointer';
+    return button;
+}
 export {loginForm}
