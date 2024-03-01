@@ -121,7 +121,6 @@
       input.classList.add('border', 'rounded', 'p-2', 'mt-2', 'text-sm', 'text-left');
       input.classList.add(...classes.split(' ')); // Adjusted to split classes string into individual class names
       input.placeholder = placeholder;
-
       return input;
     }
   
@@ -135,12 +134,12 @@
     // Get values from input fields
     const Author = document.getElementById("NameUserAddNewRecipe").value.trim();
     const recipeName = document.getElementById("NameNewRecipe").value.trim();
-    const ingredients = document.getElementById("IngredientsNewRecipe").value.trim().split('\n');
+    const ingredients = document.getElementById("IngredientsNewRecipe").value.trim().split(' ');
     const description = document.getElementById("NewDescription").value.trim().split('\n');
     const calories = document.getElementById("newCal").value.trim();
     const fat = document.getElementById("newFat").value.trim();
     const proteins = document.getElementById("newProtein").value.trim();
-    const preparation = document.getElementById("preparationInput").value.trim().split('\n');
+    const preparation = document.getElementById("preparationInput").value.trim();
     const file = document.getElementById('recipeImage').files[0]; // Get the file
     localStorage.setItem('preparation', JSON.stringify(preparation));
 

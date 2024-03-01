@@ -63,11 +63,11 @@ function openPopup(title, imageSrc, description, ingredients, nutritionalValues,
         "bg-white",
         "p-4", // Increased padding for more internal space
         "rounded-md",
-        "shadow-md",
+        "shadow-lg",
         "z-50",
         "text-center",
-        "max-w-l", // Increased max width to medium
-        "max-h-[32]", // Increased max height
+        "max-w-md", // Increased max width to medium
+        "max-h-[28]", // Increased max height
         "popup" // Add a class to identify the popup
     );
     
@@ -83,21 +83,21 @@ function openPopup(title, imageSrc, description, ingredients, nutritionalValues,
     const popupImg = document.createElement("img");
     popupImg.src = imageSrc;
     popupImg.alt = title;
-    popupImg.classList.add("w-full", "h-40", "object-cover", "rounded-md", "mb-2");
+    popupImg.classList.add("w-full", "h-48", "object-cover", "rounded-lg", "mb-1");
 
     const popupTitle = document.createElement("h2");
     popupTitle.textContent = title;
-    popupTitle.classList.add("text-lg", "font-semibold", "mb-4");
+    popupTitle.classList.add("text-lg", "font-semibold", "mb-1");
 
     const popupDescription = document.createElement("p");
     popupDescription.textContent = description;
-    popupDescription.classList.add("text-gray-600", "text-sm", "mb-4");
+    popupDescription.classList.add("text-gray-600", "font-normal", "mb-1");
 
     const ingredientsElement = document.createElement("div");
-    ingredientsElement.classList.add("text-left", "mb-4");
+    ingredientsElement.classList.add("text-left", "mb-2");
     const ingredientsTitle = document.createElement("h3");
     ingredientsTitle.textContent = "Ingredients";
-    ingredientsTitle.classList.add("text-gray-800", "text-md", "font-semibold", "mb-2");
+    ingredientsTitle.classList.add("text-gray-800", "text-md", "font-semibold");
     ingredientsElement.appendChild(ingredientsTitle);
 
     const ingredientsList = document.createElement("p");
@@ -105,10 +105,10 @@ function openPopup(title, imageSrc, description, ingredients, nutritionalValues,
     ingredientsElement.appendChild(ingredientsList);
 
     const nutritionalValuesElement = document.createElement("div");
-    nutritionalValuesElement.classList.add("text-left", "mb-4");
+    nutritionalValuesElement.classList.add("text-left", "mb-2");
     const nutritionalValuesTitle = document.createElement("h3");
     nutritionalValuesTitle.textContent = "Nutritional Values";
-    nutritionalValuesTitle.classList.add("text-gray-800", "text-md", "font-semibold", "mb-2");
+    nutritionalValuesTitle.classList.add("text-gray-800", "text-md", "font-semibold");
     nutritionalValuesElement.appendChild(nutritionalValuesTitle);
 
     const nutritionalValuesList = document.createElement("ul");
@@ -133,7 +133,7 @@ function openPopup(title, imageSrc, description, ingredients, nutritionalValues,
     preparationElement.classList.add("text-left", "mb-4");
     const preparationTitle = document.createElement("h3");
     preparationTitle.textContent = "Preparation";
-    preparationTitle.classList.add("text-gray-800", "text-md", "font-semibold", "mb-2");
+    preparationTitle.classList.add("text-gray-800", "text-md", "font-semibold", "mb-1");
     preparationElement.appendChild(preparationTitle);
     const preparationList = document.createElement("pre");
     preparationList.textContent = preparation;
