@@ -1,13 +1,89 @@
+let totalNutritionalValues = {
+    calories: 0,
+    protein: 0,
+    fat: 0
+};
+let selectedRecipes = {
+    breakfast: [],
+    lunch: [],
+    dinner: []
+  };
+
+  // Function to open meal selection modal
+  function openModal(title, ingredients, nutritionalValues) {
+    const modalContainer = document.getElementById("modalContainer");
+    modalContainer.innerHTML = ''; // Clear previous content
+
+    const modal = document.createElement("div");
+    modal.className = "modal bg-white w-44 p-4 rounded-lg shadow-md fixed top-1/2 left-0";
+
+    const closeButton = document.createElement("button");
+    closeButton.className = "close-modal-btn absolute top-2 left-2 c text-black";
+    closeButton.innerHTML = "x"; // 'x' character
+    closeButton.addEventListener("click", closeModal);
+
+    const modalTitle = document.createElement("div");
+    modalTitle.className = "text-center text-lg font-semibold title mb-2 top";
+    modalTitle.textContent = `Add ${title} to:`;
+
+    modal.appendChild(modalTitle);
+
+    const mealOptions = ["breakfast", "lunch", "dinner"];
+    mealOptions.forEach(meal => {
+        const optionButton = document.createElement("button");
+        optionButton.className = "meal-option-btn text-blue-500 py-1 px-2 mt-1 text-xs border border-blue-500 px-3 rounded-full w-full max-w-full text-ellipsis whitespace-no-wrap";
+        optionButton.textContent = meal.charAt(0).toUpperCase() + meal.slice(1); // Capitalize first letter
+        optionButton.addEventListener("click", function () {
+            addToPlanner(meal, title, ingredients, nutritionalValues);
+            closeModal();
+        });
+        modal.appendChild(optionButton);
+    });
+
+    modal.appendChild(closeButton);
+    modalContainer.appendChild(modal);
+
+// Function to close the modal
+    function closeModal() {
+        const modalContainer = document.getElementById("modalContainer");
+        modalContainer.innerHTML = ''; // Clear modal content
+    }
+}
+function addToPlanner(meal, title, ingredients, nutritionalValues) {
+    selectedRecipes[meal].push({ title, ingredients, nutritionalValues });
+    updateTotalNutritionalValues(nutritionalValues);
+
+    console.log(`Added '${title}' to ${meal}`);
+    createMealPlannerTable();
+}
+
+function updateTotalNutritionalValues(newValues) {
+    totalNutritionalValues.calories += newValues.calories;
+    totalNutritionalValues.protein += newValues.proteins;
+    totalNutritionalValues.fat += newValues.fat;
+    console.log("Updated total nutritional values:", totalNutritionalValues);
+}
+function removeTotalNutritionalValues(removedValues) {
+    // Subtract the nutritional values of the removed recipe from the total
+    totalNutritionalValues.calories -= removedValues.calories;
+    totalNutritionalValues.protein -= removedValues.proteins; // Ensure this matches the property name
+    totalNutritionalValues.fat -= removedValues.fat;
+
+    console.log("Updated total nutritional values:", totalNutritionalValues);
+}
+
+
 function createMealPlannerTable() {
     const mealPlannerContainer = document.getElementById('mealPlanner');
-    mealPlannerContainer.classList.add('text-3xl', 'font-bold', 'px-2')
+    mealPlannerContainer.innerHTML = ''; // Clear any existing content
+    mealPlannerContainer.classList.add('text-xl', 'font-bold', 'px-2');
     const mealPlannerDiv = document.createElement('div');
     mealPlannerDiv.classList.add('text-xl', 'font-bold', 'px-2');
 
     // Create and append the inner HTML
     const plannerHeader = document.createElement('div');
-    plannerHeader.classList.add('text-xl', 'font-bold');
-    plannerHeader.textContent = 'Plan your meals for the day.';
+    plannerHeader.classList.add('text-2xl', 'font-bold','text-center','py-3');
+    plannerHeader.textContent = 'Plan your meals for the day';
     mealPlannerDiv.appendChild(plannerHeader);
 
     const table = document.createElement('table');
@@ -16,11 +92,11 @@ function createMealPlannerTable() {
     // Table Head
     const tableHead = document.createElement('thead');
     const tableHeadRow = document.createElement('tr');
-    const tableHeadColumns = ['Meal', 'Recipe', 'Ingredients', 'Calories', 'Proteins', 'Fats'];
+    const tableHeadColumns = ['Meal', 'Recipe', 'Ingredients', 'Calories', 'Proteins', 'Fats', 'Actions'];
 
     tableHeadColumns.forEach(columnText => {
         const column = document.createElement('th');
-        column.classList.add('py-2', 'px-4', 'text-left');
+        column.classList.add('py-2', 'px-4', 'text-left', 'bg-gray-100');
         column.textContent = columnText;
         tableHeadRow.appendChild(column);
     });
@@ -28,102 +104,114 @@ function createMealPlannerTable() {
     tableHead.appendChild(tableHeadRow);
     table.appendChild(tableHead);
 
-    // Separator Line
-    const separatorLine = document.createElement('tr');
-    separatorLine.innerHTML = '<td class="py-2 px-2 border-t-2" colspan="7"></td>'; // Adjusted colspan
-    table.appendChild(separatorLine);
-
     // Table Body
     const tableBody = document.createElement('tbody');
-
-    // Example meal data (you can replace it with dynamic data)
-    const mealsData = [
-        { meal: 'Breakfast', recipe: 'Green Salad', ingredients: 'Cucumber, Tomato, Onion', calories: '150', proteins: '5g', fats: '10g' },
-        { meal: 'Lunch', recipe: 'Pizza Margherita', ingredients: 'Dough, Tomatoes, Mozzarella cheese, Olive oil, Basil', calories: '800', proteins: '20g', fats: '18g' },
-        { meal: 'Dinner', recipe: 'Chicken Breast', ingredients: 'Chicken breast, Olive oil, Garlic, Herbs and spices', calories: '400', proteins: '8g', fats: '60g' }
-        // Add more meals as needed
-    ];
-
-    let totalCalories = 0;
-    let totalProteins = 0;
-    let totalFats = 0;
-
-    mealsData.forEach((mealData, index) => {
-        const row = document.createElement('tr');
-        const columns = ['meal', 'recipe', 'ingredients', 'calories', 'proteins', 'fats'];
-
-        columns.forEach(columnKey => {
-            const cell = document.createElement('td');
-            cell.classList.add('py-2', 'px-2'); // Adjusted padding
-            cell.style.fontSize = '0.875rem'; // Smaller font size
-
-            // Special case for the first column (Meal)
-            if (columnKey === 'meal' && index > 0 && mealsData[index - 1].meal === mealData[columnKey]) {
-                cell.classList.add('border-t-2');
+    // Use the selectedRecipes object to create the table rows
+    Object.entries(selectedRecipes).forEach(([mealTime, recipes]) => {
+        recipes.forEach((recipe, index) => {
+            const row = document.createElement('tr');
+    
+            // Helper function to create a table cell (td) with modified style
+            function createStyledCell(textContent) {
+                const cell = document.createElement('td');
+                cell.textContent = textContent;
+                cell.style.fontSize = '0.960rem'; // Smaller font size
+                cell.style.fontWeight = 'normal'; // Remove bold
+                cell.classList.add('py-2', 'px-4'); // Adjust padding if necessary
+                return cell;
             }
-
-            if (columnKey === 'calories' || columnKey === 'proteins' || columnKey === 'fats') {
-                const value = parseFloat(mealData[columnKey]);
-                cell.textContent = value;
-                // Update total values
-                if (!isNaN(value)) {
-                    if (columnKey === 'calories') totalCalories += value;
-                    if (columnKey === 'proteins') totalProteins += value;
-                    if (columnKey === 'fats') totalFats += value;
-                }
-            } else {
-                cell.textContent = mealData[columnKey];
+            function createStyledCellforNutritionalValues(textContent, unit = '', alignment = 'left') {
+                const cell = document.createElement('td');
+                cell.textContent = `${textContent}${unit}`; // Append unit if provided
+                cell.style.fontSize = '0.875rem'; // Smaller font size
+                cell.style.fontWeight = 'normal'; // Remove bold
+                cell.classList.add('py-2', 'px-4'); // Adjust padding if necessary
+                cell.style.textAlign = alignment; // Set text alignment
+                return cell;
             }
+            
+    
+            const mealCell = createStyledCell(mealTime.charAt(0).toUpperCase() + mealTime.slice(1));
+            row.appendChild(mealCell);
+    
+            const recipeCell = createStyledCell(recipe.title);
+            row.appendChild(recipeCell);
+    
+            const ingredientsCell = createStyledCell(recipe.ingredients.join(', '));
+            row.appendChild(ingredientsCell);
+    
+            // Then, when creating calories, proteins, and fats cells:
+            const caloriesCell = createStyledCellforNutritionalValues(recipe.nutritionalValues.calories, '', 'center'); // No 'g' for calories, centered
+            row.appendChild(caloriesCell);
 
-            row.appendChild(cell);
+            const proteinsCell = createStyledCellforNutritionalValues(recipe.nutritionalValues.proteins, 'g', 'center'); // Append 'g' and center
+            row.appendChild(proteinsCell);
+
+            const fatsCell = createStyledCellforNutritionalValues(recipe.nutritionalValues.fat, 'g', 'center'); // Append 'g' and center
+            row.appendChild(fatsCell);
+                
+            // Delete button cell (keep it styled as is for visibility)
+            const deleteButtonCell = document.createElement('td');
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Remove';
+            deleteButton.classList.add('bg-green-700', 'text-white', 'px-2', 'py-1', 'rounded','text-sl', 'font-semibold');
+            deleteButton.onclick = () => {
+                const removedRecipeNutritionalValues = selectedRecipes[mealTime][index].nutritionalValues;
+                // Handle the removal of the recipe from the planner
+                selectedRecipes[mealTime] = selectedRecipes[mealTime].filter((_, recipeIndex) => recipeIndex !== index);
+                removeTotalNutritionalValues(removedRecipeNutritionalValues);
+                createMealPlannerTable(); // Refresh the table
+            };
+            deleteButtonCell.appendChild(deleteButton);
+            row.appendChild(deleteButtonCell);
+    
+            tableBody.appendChild(row);
         });
-
-        // Delete button
-        const deleteButtonCell = document.createElement('td');
-        deleteButtonCell.classList.add('py-2', 'px-1'); // Adjusted padding
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Del';
-        deleteButton.classList.add('bg-green-400', 'text-white', 'px-1', 'py-1', 'rounded', 'text-xs'); // Smaller and more beautiful
-        deleteButton.addEventListener('click', () => {
-            // Handle delete action here
-            // You can remove the row or update your data structure accordingly
-            // For now, let's log a message
-            console.log(`Delete ${mealData.recipe}`);
-        });
-        deleteButtonCell.appendChild(deleteButton);
-        row.appendChild(deleteButtonCell);
-
-        tableBody.appendChild(row);
-
-        // Separator Line after each meal
-        if (index < mealsData.length - 1 && mealData.meal !== mealsData[index + 1].meal) {
-            const mealSeparatorLine = document.createElement('tr');
-            mealSeparatorLine.innerHTML = '<td class="py-2 px-4 border-t-2" colspan="8"></td>'; // Adjusted colspan
-            tableBody.appendChild(mealSeparatorLine);
-        }
     });
 
     table.appendChild(tableBody);
     mealPlannerDiv.appendChild(table);
+    table.appendChild(tableBody);
 
-    // Separator Line after the total line
-    const totalSeparatorLine = document.createElement('tr');
-    totalSeparatorLine.innerHTML = '<td class="py-2 border-b" colspan="8"></td>'; // Adjusted colspan
-    tableBody.appendChild(totalSeparatorLine);
+    // Calculate totalNutritionalValues based on selectedRecipes...
 
-    // Total Nutritional Values Line (Added at the end of the table)
-    const totalLine = document.createElement('tr');
-    totalLine.innerHTML = `<td class="px-4 font-semibold">Total</td>
-                          <td class="py-2 px-4"></td>
-                          <td class="py-2 px-4"></td>
-                          <td class="py-2">${totalCalories.toFixed(2)}</td>
-                          <td class="py-2">${totalProteins.toFixed(2)}g</td>
-                          <td class="py-2">${totalFats.toFixed(2)}g</td>
-                          <td class="py-2 px-4"></td>`; // Adjusted colspan
-    tableBody.appendChild(totalLine);
+    // Append a row for totals to the tableBody
+    const totalsRow = document.createElement('tr');
+    totalsRow.classList.add('bg-gray-200'); // Optional: Add a background color for the totals row for better distinction
 
-    // Append the meal planner container to the existing div
+    const totalLabelCell = document.createElement('td');
+    totalLabelCell.textContent = 'Total';
+    totalLabelCell.colSpan = "3"; // Adjust the colspan as needed to align with your table's structure
+    totalLabelCell.classList.add('font-bold', 'text-xl', 'py-2', 'px-4');
+    totalsRow.appendChild(totalLabelCell);
+
+    // Add empty cells if necessary, depending on your table's structure
+    // Example: If you have more columns before the nutritional values, append empty cells with colspan
+
+    const totalCaloriesCell = document.createElement('td');
+    totalCaloriesCell.textContent = `${totalNutritionalValues.calories}`;
+    totalCaloriesCell.classList.add('text-center');
+    totalsRow.appendChild(totalCaloriesCell);
+
+    const totalProteinCell = document.createElement('td');
+    totalProteinCell.textContent = `${totalNutritionalValues.protein}g`;
+    totalProteinCell.classList.add('text-center');
+    totalsRow.appendChild(totalProteinCell);
+
+    const totalFatCell = document.createElement('td');
+    totalFatCell.textContent = `${totalNutritionalValues.fat}g`;
+    totalFatCell.classList.add('text-center');
+    totalsRow.appendChild(totalFatCell);
+
+    // Optionally, add an empty cell if you have an "Actions" column to keep the layout consistent
+    const emptyActionCell = document.createElement('td');
+    totalsRow.appendChild(emptyActionCell);
+
+    tableBody.appendChild(totalsRow);
+
+    // Append the meal planner div (which includes the table) to the container
     mealPlannerContainer.appendChild(mealPlannerDiv);
+
 }
 
-export { createMealPlannerTable };
+export { createMealPlannerTable, openModal };

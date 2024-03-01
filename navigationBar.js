@@ -7,8 +7,7 @@ function createNav()
 
     // Create div for the title
     var titleDiv = document.createElement('div');
-    titleDiv.classList.add('text-white', 'text-3xl', 'font-bold', 'start-0');
-    titleDiv.textContent = 'Recipe Sharing & Meal Planning';
+    titleDiv.classList.add('text-white', 'text-2xl');
 
     // Create ul element
     var ulElement = document.createElement('ul');
