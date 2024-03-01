@@ -1,7 +1,6 @@
 // Import db from server/server.js
 import { db } from "./server/server.js";
 import { collection, getDocs } from "firebase/firestore";
-
 import { createNav } from "./navigationBar";
 import { createSearchBar } from "./searchBar";
 import { createRecipeCardOnDisplay } from './createCard';
@@ -19,7 +18,7 @@ document.addEventListener("DOMContentLoaded",function(){
 })
 
 
-  
+
 
 let recipes = [];
 document.addEventListener("DOMContentLoaded", function () {
@@ -194,82 +193,7 @@ document.getElementById("getShoppingListBtn").addEventListener("click", function
 
 ///adding a new recipe - not working for now! i will fix it.
 
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("submitRecipeBtn").addEventListener("click", function () {
-        // Call the function to handle the recipe submission
-        submitRecipe();
-    });
-});
-
-function submitRecipe() {
-    // Get values from input fields
-    const recipeName = document.getElementById("NameNewRecipe").value.trim();
-    const ingredients = document.getElementById("IngredientsNewRecipe").value.trim().split('\n');
-    const calories = document.getElementById("newCal").value.trim();
-    const fat = document.getElementById("newFat").value.trim();
-    const protein = document.getElementById("newProtein").value.trim(); // Updated id
-    // const carbs = document.getElementById("newCarbs").value.trim();
 
 
-    // Validate input data (add your own validation logic)
-    if (!recipeName || !ingredients || !calories || !fat || !protein) {
-        alert("Please fill in all the required fields.");
-        return;
-    }
-
-    // Get the selected file from the file input
-    const fileInput = document.getElementById("recipeImage");
-    const file = fileInput.files[0];
-
-    // Validate if a file is selected
-    if (!file) {
-        alert("Please select a recipe image.");
-        return;
-    }
-
-    // Create a FormData object to append the file data
-    const formData = new FormData();
-    formData.append("recipeImage", file, file.name);
-
-    // Upload the file to the "pictures/" folder
-    fetch("/recipesInfo.json", {
-        method: "POST",
-        body: formData,
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Handle the response from the server if needed
-        console.log("Image uploaded successfully:", data);
-
-        // Create a new recipe object
-        const newRecipe = {
-            name: recipeName,
-            ingredients: ingredients,
-            nutritionalValues: {
-                calories: calories,
-                fat: fat,
-                protein: protein,
-            },
-            image: "/pictures/" + file.name, // Update with the correct path
-        };
-
-        // Add the new recipe to the recipes array (assuming 'recipes' is a global variable)
-        recipes.push(newRecipe);
-
-        // Display the new recipe on the page
-        createRecipeCardOnDisplay(newRecipe.name, newRecipe.image, /* add other properties as needed */);
-
-        // Optional: You can save the updated recipes array to a server or local storage
-
-        // Clear input fields
-        document.getElementById("NameNewRecipe").value = "";
-        document.getElementById("IngredientsNewRecipe").value = "";
-        document.getElementById("newCal").value = "";
-        document.getElementById("newFat").value = "";
-        document.getElementById("newProtein").value = "";
-        alert("Recipe submitted successfully!");
-    })
-    .catch(error => console.error("Error uploading image:", error));
-}
 /// fix
 
