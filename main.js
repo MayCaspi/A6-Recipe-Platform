@@ -50,11 +50,7 @@ let selectedRecipes = {
     lunch: [],
     dinner: []
 };
-let totalNutritionalValues = {
-    calories: 0,
-    protein: 0,
-    fat: 0
-};
+
 
 
 document.addEventListener("DOMContentLoaded", function () {

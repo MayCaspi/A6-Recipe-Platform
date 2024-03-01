@@ -1,4 +1,6 @@
-export function createRecipeCardOnDisplay(title, imageSrc, description, ingredients, nutritionalValues,preparation, openPopup, openModal) {
+import { openModal } from "./mealPlanner.js";
+
+export function createRecipeCardOnDisplay(title, imageSrc, description, ingredients, nutritionalValues,preparation, openPopup) {
     const recipeContainer = document.getElementById("recipeContainer");
     recipeContainer.classList.add('grid', 'grid-cols-4', 'gap-8', 'p-20');
     const recipeCard = document.createElement("div");
@@ -156,59 +158,6 @@ function openPopup(title, imageSrc, description, ingredients, nutritionalValues,
     currentPopupImg = imageSrc;
 }
 
-  // Function to open meal selection modal
-  function openModal(title, ingredients, nutritionalValues) {
-    const modalContainer = document.getElementById("modalContainer");
-    modalContainer.innerHTML = ''; // Clear previous content
 
-    const modal = document.createElement("div");
-    modal.className = "modal bg-white w-44 p-4 rounded-lg shadow-md fixed top-1/2 left-0";
 
-    const closeButton = document.createElement("button");
-    closeButton.className = "close-modal-btn absolute top-2 left-2 c text-black";
-    closeButton.innerHTML = "x"; // 'x' character
-    closeButton.addEventListener("click", closeModal);
-
-    const modalTitle = document.createElement("div");
-    modalTitle.className = "text-center text-lg font-semibold title mb-2 top";
-    modalTitle.textContent = `Add ${title} to:`;
-
-    modal.appendChild(modalTitle);
-
-    const mealOptions = ["breakfast", "lunch", "dinner"];
-    mealOptions.forEach(meal => {
-        const optionButton = document.createElement("button");
-        optionButton.className = "meal-option-btn text-blue-500 py-1 px-2 mt-1 text-xs border border-blue-500 px-3 rounded-full w-full max-w-full text-ellipsis whitespace-no-wrap";
-        optionButton.textContent = meal.charAt(0).toUpperCase() + meal.slice(1); // Capitalize first letter
-        optionButton.addEventListener("click", function () {
-            addToPlanner(meal, title, ingredients, nutritionalValues);
-            closeModal();
-        });
-        modal.appendChild(optionButton);
-    });
-
-    modal.appendChild(closeButton);
-    modalContainer.appendChild(modal);
-
-// Function to close the modal
-    function closeModal() {
-        const modalContainer = document.getElementById("modalContainer");
-        modalContainer.innerHTML = ''; // Clear modal content
-    }
-}
-
-function addToPlanner(meal, title, ingredients, nutritionalValues) {
-    selectedRecipes[meal].push({ title, ingredients, nutritionalValues });
-    updateTotalNutritionalValues(nutritionalValues);
-
-    console.log(`Added '${title}' to ${meal}`);
-}
-
-// Function to update total nutritional values
-function updateTotalNutritionalValues(newValues) {
-    totalNutritionalValues.calories += newValues.calories;
-    totalNutritionalValues.protein += newValues.proteins;
-    totalNutritionalValues.fat += newValues.fat;
-    console.log("Updated total nutritional values:", totalNutritionalValues);
-}
 }
