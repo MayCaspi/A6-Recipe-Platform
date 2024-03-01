@@ -58,26 +58,46 @@
   
     newRecipeDiv.appendChild(nutritionGrid);
   
+    // Assuming newRecipeDiv is already defined somewhere in your code
+
     // Container for File Input
     const fileInputContainer = document.createElement('div');
     fileInputContainer.classList.add('flex', 'items-center', 'w-1/3', 'mt-2', 'mb-4');
-  
+
     const labelForImage = document.createElement('label');
     labelForImage.classList.add('cursor-pointer', 'bg-gray-200', 'text-gray-700', 'px-4', 'py-2', 'rounded-md');
     labelForImage.textContent = 'Upload Image';
-  
+
     const fileInput = document.createElement('input');
     fileInput.type = 'file';
     fileInput.id = 'recipeImage';
     fileInput.name = 'recipeImage';
     fileInput.accept = 'image/*';
     fileInput.classList.add('hidden');
-  
+
+    // Create an element to display the URL
+    const urlDisplay = document.createElement('p');
+    urlDisplay.classList.add('text-gray-700', 'mt-2','px-4','font-semibold');
+
     fileInputContainer.appendChild(labelForImage);
     fileInputContainer.appendChild(fileInput);
-  
+    fileInputContainer.appendChild(urlDisplay); // Add URL display to the container
+
     newRecipeDiv.appendChild(fileInputContainer);
+
     labelForImage.addEventListener('click', () => fileInput.click());
+
+    fileInput.addEventListener('change', function() {
+        // Check if a file was uploaded
+        if (this.files && this.files[0]) {
+            // Create a URL for the uploaded file
+            const fileURL = URL.createObjectURL(this.files[0]);
+            
+            // Display the URL
+            urlDisplay.textContent = `Image uploaded: ${fileURL}`;
+        }
+    });
+
 
     // Button to Add a New Recipe
     const submitButton = document.createElement('button');
