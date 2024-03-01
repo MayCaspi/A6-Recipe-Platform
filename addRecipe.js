@@ -27,13 +27,13 @@
     newRecipeDiv.appendChild(descriptionParagraph);
   
     // Input for Recipe
-    const nameUserInput = createInput('NameUserAddNewRecipe', 'w-1/3', 'Enter Your Name');
-    const nameRecipeInput = createInput('NameNewRecipe', 'w-1/3', 'Enter Recipe Title');
-    const DescriptionInput = createInput('NewDescription', 'w-1/3', 'Enter Description Title');
-    const ingredientsInput = createInput('IngredientsNewRecipe', 'w-1/3', 'Enter Ingredients');
+    const nameUserInput = createInput('NameUserAddNewRecipe', 'w-1/3', 'Enter Your Name',false);
+    const nameRecipeInput = createInput('NameNewRecipe', 'w-1/3', 'Enter Recipe Title',false);
+    const DescriptionInput = createInput('NewDescription', 'w-1/3', 'Enter Description Title',false);
+    const ingredientsInput = createInput('IngredientsNewRecipe', 'w-1/3', 'Enter Ingredients',true);
     ingredientsInput.style.height = '100px';
     ingredientsInput.style.paddingBottom = '80px';
-    const preparationInput = createInput('preparationInput', 'w-1/3', 'Enter preparations');
+    const preparationInput = createInput('preparationInput', 'w-1/3', 'Enter preparations',true);
     preparationInput.style.height = '200px';
     preparationInput.style.paddingBottom = '180px';
   
@@ -107,15 +107,21 @@
   
     newRecipeDiv.appendChild(submitButton);
      // Helper function to create input elements
-    function createInput(id, classes, placeholder) 
+    function createInput(id, classes, placeholder,multiline = false) 
     {
-      const input = document.createElement('input');
-      input.type = 'text';
+      let input;
+      if (multiline) {
+        input = document.createElement('textarea');
+        input.rows = 4; // Default rows, you can adjust this value
+      } else {
+        input = document.createElement('input');
+        input.type = 'text';
+      }
       input.id = id;
       input.classList.add('border', 'rounded', 'p-2', 'mt-2', 'text-sm', 'text-left');
-      input.classList.add(classes);
+      input.classList.add(...classes.split(' ')); // Adjusted to split classes string into individual class names
       input.placeholder = placeholder;
-    
+
       return input;
     }
   
@@ -133,12 +139,13 @@
     const description = document.getElementById("NewDescription").value.trim().split('\n');
     const calories = document.getElementById("newCal").value.trim();
     const fat = document.getElementById("newFat").value.trim();
-    const protein = document.getElementById("newProtein").value.trim();
+    const proteins = document.getElementById("newProtein").value.trim();
     const preparation = document.getElementById("preparationInput").value.trim().split('\n');
     const file = document.getElementById('recipeImage').files[0]; // Get the file
-    
+    localStorage.setItem('preparation', JSON.stringify(preparation));
+
     // Validate input data
-    if (!recipeName || ingredients.length === 0 || !calories || !fat || !protein || !Author || !description || !preparation || !file) {
+    if (!recipeName || ingredients.length === 0 || !calories || !fat || !proteins || !Author || !description || !preparation || !file) {
       alert("Please fill in all the required fields, including the recipe image.");
       return;
     }
@@ -158,7 +165,7 @@
         nutritionalValues: {
           calories: calories,
           fat: fat,
-          protein: protein,
+          proteins: proteins,
         },
         preparation: preparation,
         image: image, // Add the image URL to the recipe object
@@ -179,7 +186,11 @@
       document.getElementById("newCal").value = "";
       document.getElementById("newFat").value = "";
       document.getElementById("newProtein").value = "";
+      document.getElementById("NameUserAddNewRecipe").value = "";
+      document.getElementById("NewDescription").value = "";
+      document.getElementById("preparationInput").value = "";
       document.getElementById("recipeImage").value = ""; // Clear the file input
+      document.getElementById("recipeImage").nextElementSibling.textContent = ""; // Clear the file URL display
     } catch (error) {
       console.error("Error submitting recipe or uploading image: ", error);
       alert("Error submitting recipe or uploading image. Please try again.");

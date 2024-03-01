@@ -61,16 +61,16 @@ function openPopup(title, imageSrc, description, ingredients, nutritionalValues,
         "-translate-x-1/2",
         "-translate-y-1/2",
         "bg-white",
-        "p-2", 
+        "p-4", // Increased padding for more internal space
         "rounded-md",
         "shadow-md",
         "z-50",
         "text-center",
-        "max-w-sm", // Reduced max width
-        "max-h-[16]",
+        "max-w-l", // Increased max width to medium
+        "max-h-[32]", // Increased max height
         "popup" // Add a class to identify the popup
     );
-
+    
     const closeBtn = document.createElement("button");
     closeBtn.innerHTML = '<span class="text-stone-900 font-extrabold text-2xl bg-slate-200 rounded cursor-pointer">&times;</span>'; // Larger 'x' character for close
     closeBtn.classList.add("absolute", "top-2", "left-2");
@@ -112,7 +112,16 @@ function openPopup(title, imageSrc, description, ingredients, nutritionalValues,
     nutritionalValuesElement.appendChild(nutritionalValuesTitle);
 
     const nutritionalValuesList = document.createElement("ul");
-    for (const [key, value] of Object.entries(nutritionalValues)) {
+    const desiredOrder = ["fat", "proteins", "calories"];
+
+// Sort the keys based on the desired order
+    const sortedKeys = Object.keys(nutritionalValues).sort((a, b) =>
+    desiredOrder.indexOf(a) - desiredOrder.indexOf(b)
+    );
+
+    // Iterate over the sorted keys
+    for (const key of sortedKeys) {
+        const value = nutritionalValues[key];
         const listItem = document.createElement("li");
         const unit = (key === "fat" || key === "proteins") ? 'g' : '';
         listItem.textContent = `${key}: ${value}${unit}`;
