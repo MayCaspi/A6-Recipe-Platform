@@ -109,6 +109,7 @@ function createButton(value, id) {
     button.type = 'submit';
     button.id = id;
     button.value = value;
+    button.style.fontFamily =" Josefin Sans, sans-serif";
     button.style.width = '100%';
     button.style.padding = '10px';
     button.style.borderRadius = '5px';

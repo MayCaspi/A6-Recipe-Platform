@@ -3,8 +3,13 @@ import { openModal } from "./mealPlanner.js";
 export function createRecipeCardOnDisplay(title, imageSrc, description, ingredients, nutritionalValues,preparation, openPopup) {
     const recipeContainer = document.getElementById("recipeContainer");
     recipeContainer.classList.add('grid', 'grid-cols-4', 'gap-8', 'p-20');
+
     const recipeCard = document.createElement("div");
-    recipeCard.className = "bg-white p-4 rounded-lg shadow-md hover:scale-110 transition duration-500 recipe-card";
+    recipeCard.className = "bg-white rounded-lg shadow-md hover:scale-110 transition duration-500 recipe-card flex flex-col";
+    recipeCard.style.paddingBottom = "1rem"; // Add extra padding to the bottom to account for the button
+    
+    const contentContainer = document.createElement("div");
+    contentContainer.className = "p-4 flex flex-col flex-grow";
 
     const img = document.createElement("img");
     img.src = imageSrc;
@@ -16,28 +21,27 @@ export function createRecipeCardOnDisplay(title, imageSrc, description, ingredie
     });
 
     const titleElement = document.createElement("div");
-    titleElement.className = "text-center text-lg font-semibold title";
+    titleElement.className = "text-center text-lg font-semibold title mb-4";
     titleElement.textContent = title;
 
     const descriptionElement = document.createElement("p");
-    descriptionElement.className = "text-gray-600 text-s description";
+    descriptionElement.className = "text-gray-600 text-s description flex-grow";
     descriptionElement.textContent = description;
 
     const addButton = document.createElement("button");
-    addButton.className = "add-to-planner-btn text-green-500 py-1 px-2 mt-1 text-xs border border-green-500 px-3 rounded-full w-full max-w-full text-ellipsis whitespace-no-wrap";
+    addButton.className = "add-to-planner-btn text-green-500 py-1 px-2 mt-4 text-xs border border-green-500 rounded-full w-full self-end";
     addButton.textContent = "+ Add to Planner";
-
     addButton.addEventListener("click", function () {
         openModal(title, ingredients, nutritionalValues);
     });
 
-    recipeCard.appendChild(img);
-    recipeCard.appendChild(titleElement);
-    recipeCard.appendChild(descriptionElement);
-    recipeCard.appendChild(addButton);
+    contentContainer.appendChild(img);
+    contentContainer.appendChild(titleElement);
+    contentContainer.appendChild(descriptionElement);
+    recipeCard.appendChild(contentContainer); // Add the content container before the button
+    recipeCard.appendChild(addButton); // Button added outside to stick at the bottom
 
     recipeContainer.appendChild(recipeCard);
-
 
     let currentPopupImg = null;
 function openPopup(title, imageSrc, description, ingredients, nutritionalValues, preparation) {
