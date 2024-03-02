@@ -30,10 +30,10 @@
     const nameUserInput = createInput('NameUserAddNewRecipe', 'w-1/3', 'Enter Your Name',false);
     const nameRecipeInput = createInput('NameNewRecipe', 'w-1/3', 'Enter Recipe Title',false);
     const DescriptionInput = createInput('NewDescription', 'w-1/3', 'Enter Description Title',false);
-    const ingredientsInput = createInput('IngredientsNewRecipe', 'w-1/3', 'Enter Ingredients',true);
+    const ingredientsInput = createInput('IngredientsNewRecipe', 'w-1/3', 'Enter Ingredients. Each ingrediens in a separate line. ',true);
     ingredientsInput.style.height = '100px';
     ingredientsInput.style.paddingBottom = '80px';
-    const preparationInput = createInput('preparationInput', 'w-1/3', 'Enter preparations',true);
+    const preparationInput = createInput('preparationInput', 'w-1/3', 'Enter preparations. Each step in a sepearte line.',true);
     preparationInput.style.height = '200px';
     preparationInput.style.paddingBottom = '180px';
   
@@ -134,7 +134,7 @@
     // Get values from input fields
     const Author = document.getElementById("NameUserAddNewRecipe").value.trim();
     const recipeName = document.getElementById("NameNewRecipe").value.trim();
-    const ingredients = document.getElementById("IngredientsNewRecipe").value.trim().split(' ');
+    const ingredients = document.getElementById("IngredientsNewRecipe").value.trim().split('\n');
     const description = document.getElementById("NewDescription").value.trim().split('\n');
     const calories = parseInt(document.getElementById("newCal").value.trim(), 10);
     const fat = parseFloat(document.getElementById("newFat").value.trim());
@@ -143,7 +143,7 @@
     const file = document.getElementById('recipeImage').files[0]; // Get the file
     localStorage.setItem('preparation', JSON.stringify(preparation));
 
-    // Validate input data
+    // Validate input data  
     if (!recipeName || ingredients.length === 0 || !calories || !fat || !proteins || !Author || !description || !preparation || !file) {
       alert("Please fill in all the required fields, including the recipe image.");
       return;

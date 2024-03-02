@@ -2,10 +2,10 @@ const fs = require('fs');
 
 // New users to add
 const newUsers = [
-  { username: 'amir', password: '12345678' },
-  { username: 'ron', password: '12345678' },
-  { username: 'avi', password: '12345678' },
-  { username: 'adi', password: '12345678' },
+  { username: 'shay', password: '12345678' },
+  { username: 'may', password: '12345678' },
+  { username: 'naomi', password: '12345678' },
+  { username: 'alex', password: '12345678' },
   { username: 'matan', password: '12345678' },
   { username: 'daniel', password: '12345678' },
   { username: 'tzahi', password: '12345678' }

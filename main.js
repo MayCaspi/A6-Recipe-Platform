@@ -83,18 +83,3 @@ function displayRecipes(recipes) {
     });
 }
 
-//finish the SearchBar
-
-
-
-
-// finish my fake list
-
-
-
-///adding a new recipe - not working for now! i will fix it.
-
-
-
-/// fix
-
