@@ -136,9 +136,9 @@
     const recipeName = document.getElementById("NameNewRecipe").value.trim();
     const ingredients = document.getElementById("IngredientsNewRecipe").value.trim().split(' ');
     const description = document.getElementById("NewDescription").value.trim().split('\n');
-    const calories = document.getElementById("newCal").value.trim();
-    const fat = document.getElementById("newFat").value.trim();
-    const proteins = document.getElementById("newProtein").value.trim();
+    const calories = parseInt(document.getElementById("newCal").value.trim(), 10);
+    const fat = parseFloat(document.getElementById("newFat").value.trim());
+    const proteins = parseFloat(document.getElementById("newProtein").value.trim());
     const preparation = document.getElementById("preparationInput").value.trim();
     const file = document.getElementById('recipeImage').files[0]; // Get the file
     localStorage.setItem('preparation', JSON.stringify(preparation));
