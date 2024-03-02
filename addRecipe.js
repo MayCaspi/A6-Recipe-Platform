@@ -17,7 +17,7 @@
   
     // Create and append the inner HTML
     const titleDiv = document.createElement('div');
-    titleDiv.classList.add('text-3xl', 'font-bold', 'mb-2');
+    titleDiv.classList.add('text-3xl', 'font-bold', 'mb-2','bigTitle');
     titleDiv.textContent = 'Add new recipe';
     newRecipeDiv.appendChild(titleDiv);
   

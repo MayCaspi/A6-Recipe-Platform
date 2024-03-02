@@ -82,7 +82,7 @@ function createMealPlannerTable() {
 
     // Create and append the inner HTML
     const plannerHeader = document.createElement('div');
-    plannerHeader.classList.add('text-2xl', 'font-bold','text-center','py-3');
+    plannerHeader.classList.add('text-2xl', 'font-bold','text-center','py-3','bigTitle');
     plannerHeader.textContent = 'Plan your meals for the day';
     mealPlannerDiv.appendChild(plannerHeader);
 
@@ -177,7 +177,7 @@ function createMealPlannerTable() {
 
     // Append a row for totals to the tableBody
     const totalsRow = document.createElement('tr');
-    totalsRow.classList.add('bg-gray-200'); // Optional: Add a background color for the totals row for better distinction
+    totalsRow.classList.add('bg-gray-200'); // Optional: a background color for the totals row for better distinction
 
     const totalLabelCell = document.createElement('td');
     totalLabelCell.textContent = 'Total';
@@ -185,7 +185,7 @@ function createMealPlannerTable() {
     totalLabelCell.classList.add('font-bold', 'text-xl', 'py-2', 'px-4');
     totalsRow.appendChild(totalLabelCell);
 
-    // Add empty cells if necessary, depending on your table's structure
+    // empty cells if necessary, depending on your table's structure
     // Example: If you have more columns before the nutritional values, append empty cells with colspan
 
     const totalCaloriesCell = document.createElement('td');

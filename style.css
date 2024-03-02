@@ -14,3 +14,8 @@
 .highlight {
     border-bottom: 2px solid rgb(41, 82, 67);
 }
+.bigTitle{
+    font-family: "Arvo", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
