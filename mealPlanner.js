@@ -133,9 +133,8 @@ function createMealPlannerTable() {
             }
             
     
-            const mealCell = createStyledCell(index === 0 ? mealTime.charAt(0).toUpperCase() + mealTime.slice(1) : '');
+            const mealCell = createStyledCell(index === 0 ? mealTime.charAt(0).toUpperCase() + mealTime.slice(1) : '');
             row.appendChild(mealCell);
-    
             const recipeCell = createStyledCell(recipe.title);
             row.appendChild(recipeCell);
     
