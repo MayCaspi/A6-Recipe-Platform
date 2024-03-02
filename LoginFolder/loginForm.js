@@ -5,13 +5,13 @@ function loginForm() {
     container.style.display = 'flex';
     container.style.alignItems = 'center';
     container.style.justifyContent = 'center';
-    container.style.maxWidth = '1500px'; // Increased max width
+    container.style.maxWidth = '1300px'; // Increased max width
     container.style.margin = 'auto';
     container.style.marginTop = '100px';
     container.style.backgroundColor = '#fff';
     container.style.boxShadow = '0 4px 20px 0 rgba(0,0,0,0.2)';
     container.style.overflow = 'hidden';
-    container.style.height = '700px'; // Set a fixed height for the container
+    container.style.height = '500px'; // Set a fixed height for the container
     container.style.alignContent = 'center';
     container.style.borderRadius = '10px';
 
