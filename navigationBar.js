@@ -47,8 +47,8 @@ function createNav()
         const newRecipeMenu = document.querySelector('#newRecipe-page');
         const mealPlannerMenu = document.querySelector('#mealPlanner-page');
         let scrollPos = window.scrollY;
-        console.log(scrollPos);
-        // used to find the correct values for scrollPos (try to run it on your browser's console)
+        // console.log(scrollPos);
+        // // used to find the correct values for scrollPos (try to run it on your browser's console)
 
         // adds 'highlight' class to menu items
         if (scrollPos < 780) {

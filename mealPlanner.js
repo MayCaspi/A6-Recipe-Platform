@@ -1,3 +1,5 @@
+import { createShoppingCart } from "./shoppingCart";
+
 let totalNutritionalValues = {
     calories: 0,
     protein: 0,
@@ -131,7 +133,7 @@ function createMealPlannerTable() {
             }
             
     
-            const mealCell = createStyledCell(mealTime.charAt(0).toUpperCase() + mealTime.slice(1));
+            const mealCell = createStyledCell(index === 0 ? mealTime.charAt(0).toUpperCase() + mealTime.slice(1) : '');
             row.appendChild(mealCell);
     
             const recipeCell = createStyledCell(recipe.title);
@@ -204,14 +206,47 @@ function createMealPlannerTable() {
     totalsRow.appendChild(totalFatCell);
 
     // Optionally, add an empty cell if you have an "Actions" column to keep the layout consistent
+   // Assuming the totalsRow and tableBody setup is already done
+
+    // Create an empty cell for the shopping cart button, if you haven't added one already
     const emptyActionCell = document.createElement('td');
+
+    // Create the button for the shopping cart
+    const shoppingCartButton = document.createElement('button');
+    shoppingCartButton.classList.add('flex', 'justify-center', 'items-center', 'px-8', 'py-1'); // Add styling classes as needed
+
+    // Create the shopping cart icon as an img element
+    const shoppingCartIcon = document.createElement('img');
+    shoppingCartIcon.src = 'pictures/add-to-cart.png'; // Adjust the path as needed
+    shoppingCartIcon.alt = 'Shopping Cart'; // Accessibility: add an alt text
+    shoppingCartIcon.style.width = '24px'; // Example size, adjust as needed
+    shoppingCartIcon.style.height = '24px'; // Example size, adjust as needed
+    shoppingCartIcon.style.transition = 'transform 0.3s ease'; // Smooth transition for the hover effect
+
+    // Apply hover effects specifically to the icon
+    shoppingCartIcon.onmouseover = () => shoppingCartIcon.style.transform = 'scale(1.3)'; // Slightly enlarge icon on hover
+    shoppingCartIcon.onmouseout = () => shoppingCartIcon.style.transform = ''; // Return to original size on mouse out
+
+    // Append the shopping cart icon to the button
+    shoppingCartButton.appendChild(shoppingCartIcon);
+
+    // Append the button to the emptyActionCell
+    emptyActionCell.appendChild(shoppingCartButton);
+
+    // Append the emptyActionCell to the totalsRow
     totalsRow.appendChild(emptyActionCell);
 
+    // Ensure the totalsRow has been added to the table body, as you've done in your function
     tableBody.appendChild(totalsRow);
 
     // Append the meal planner div (which includes the table) to the container
     mealPlannerContainer.appendChild(mealPlannerDiv);
 
+    shoppingCartButton.addEventListener('click', function(){
+        createShoppingCart(selectedRecipes);
+    });
+    
 }
+
 
 export { createMealPlannerTable, openModal };
