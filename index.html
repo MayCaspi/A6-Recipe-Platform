@@ -1,16 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Login</title>
-    <link rel="stylesheet" href="LoginFolder/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipe Sharing Platform</title>
+  <link rel="stylesheet" href="./style.css" />
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="LoginFolder/login.js" type="module" defer></script>
+
+<body class="dark:bg-slate-800 h-screen bg-gradient-to-b bg-gray-150 flex flex-col text-green-800 pt-16">
+
+  <nav id="navBar"></nav>
+
+  <!-- Main Content -->
+  <div class="flex flex-col items-center">
+      <h1 class="text-4xl font-bold mt-2 mb-4 bigTitle" id="Home" >
+        Welcome To Our Recipe Sharing & Meal Planning Platform
+      </h1>
+      <p class="text-lg m-4">
+        Browse through delicious recipes shared by our community.
+      </p>
+      <!-- Add Search Bar from js -->
+    <div id="searchBar"></div>
+  </div>
+
+  <div id="recipeContainer"></div>
+    
+  <div id="modalContainer"></div>
+
+  <div id="newRecipe"></div>
+
+  <div id="banner"></div>
+
+  <div id ="mealPlanner"></div>
+
+  <div id="getShoppingListBtn"></div>
+   
+  <script type="module" src="main.js" defer></script>
+
 </body>
+<!-- Footer -->
+<footer class="bg-green-400 text-white text-center py-4 mt-8">
+  <p>&copy; 2024 Recipe Platform. All rights reserved.</p>
+</footer>
+
 </html>
+
+
+  <!-- add a sideBar -->
+    <!-- <div>
+      <button class="bg-green-500 text-white px-2 py-1 rounded shadow-green-800 shadow-xl" id="clickForSideBar">Click for Side Bar</button>
+
+      <div id="mealPlanSideBar" class="hidden fixed top-1/2 right-0 transform -translate-y-1/2 w-35%  bg-gradient-to-r bg-gray-50 p-6 rounded-lg shadow-lg" >
+        <button id="closeSideBar" class="absolute top-2 right-2 text-green-800 text-2xl cursor-pointer">×</button>
+        <h2 class="text-2xl font-bold mb-4 font-ui text-green-700">Your Daily Meal Planner</h2>
+          <ul>
+              <li id="row-Breakfast" class="text-gray-800">Breakfast: Pizza Margherita, Fries, Grilled Chicken Salad, Hot Dog</li>
+              <li id="row-Lunch" class="text-gray-800">Lunch:</li>
+              <li id="row-Dinner" class="text-gray-800">Dinner: </li>
+          </ul>
+          <br>
+          <div class="mb-5">
+              <h3 class="text-l text-green-800 underline">Nutritional values per day:</h3>
+              <ul>
+                  <li id="row-Calories" class="text-gray-800"></li>
+                  <li id="row-Proteins" class="text-gray-800"></li>
+                  <li id="row-Fats" class="text-gray-800"></li>
+              </ul>
+          </div>
+          <button  id="getShoppingListBtn" class="bg-green-600 text-white px-2 py-1 rounded">Get Shopping List</button>
+      </div>
+    </div> -->
+    <!-- finish sideBar -->
