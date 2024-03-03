@@ -30,7 +30,7 @@
     const nameUserInput = createInput('NameUserAddNewRecipe', 'w-1/3', 'Enter Your Name',false);
     const nameRecipeInput = createInput('NameNewRecipe', 'w-1/3', 'Enter Recipe Title',false);
     const DescriptionInput = createInput('NewDescription', 'w-1/3', 'Enter Description Title',false);
-    const ingredientsInput = createInput('IngredientsNewRecipe', 'w-1/3', 'Enter Ingredients. Each ingrediens in a separate line. ',true);
+    const ingredientsInput = createInput('IngredientsNewRecipe', 'w-1/3', 'Enter Ingredients. Each ingredient in a separate line. ',true);
     ingredientsInput.style.height = '100px';
     ingredientsInput.style.paddingBottom = '80px';
     const preparationInput = createInput('preparationInput', 'w-1/3', 'Enter preparations. Each step in a sepearte line.',true);

@@ -51,6 +51,16 @@ function loginForm() {
     document.body.style.fontFamily = " Josefin Sans, sans-serif";
     rightSide.appendChild(title);
 
+/// this will be deleted!!!
+    var tempLogin = document.createElement('h4');
+    tempLogin.textContent = 'For now you can use: shay, may, daniel, matan, tzahi, alex or naomi as userName. psw:12345678';
+    tempLogin.style.textAlign = 'center';
+    tempLogin.style.marginBottom = '20px';
+    tempLogin.style.color = '#595959';
+    document.body.style.fontFamily = " Josefin Sans, sans-serif";
+    rightSide.appendChild(tempLogin);
+    
+
     // Form
     var form = document.createElement('form');
     form.id = 'loginForm';
