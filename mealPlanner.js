@@ -9,10 +9,10 @@ let selectedRecipes = {
     breakfast: [],
     lunch: [],
     dinner: []
-  };
+};
 
-  // Function to open meal selection modal
-  function openModal(title, ingredients, nutritionalValues) {
+// Function to open meal selection modal
+function openModal(title, ingredients, nutritionalValues) {
     const modalContainer = document.getElementById("modalContainer");
     modalContainer.innerHTML = ''; // Clear previous content
 
@@ -21,6 +21,7 @@ let selectedRecipes = {
 
     const closeButton = document.createElement("button");
     closeButton.className = "close-modal-btn absolute top-2 left-2 c text-black";
+
     closeButton.innerHTML = "x"; // 'x' character
     closeButton.addEventListener("click", closeModal);
 
@@ -45,7 +46,7 @@ let selectedRecipes = {
     modal.appendChild(closeButton);
     modalContainer.appendChild(modal);
 
-// Function to close the modal
+    // Function to close the modal
     function closeModal() {
         const modalContainer = document.getElementById("modalContainer");
         modalContainer.innerHTML = ''; // Clear modal content
@@ -84,7 +85,7 @@ function createMealPlannerTable() {
 
     // Create and append the inner HTML
     const plannerHeader = document.createElement('div');
-    plannerHeader.classList.add('text-2xl', 'font-bold','text-center','py-3','bigTitle');
+    plannerHeader.classList.add('text-2xl', 'font-bold', 'text-center', 'py-3', 'bigTitle', 'sm:text-3xl');
     plannerHeader.textContent = 'Plan your meals for the day';
     mealPlannerDiv.appendChild(plannerHeader);
 
@@ -112,7 +113,7 @@ function createMealPlannerTable() {
     Object.entries(selectedRecipes).forEach(([mealTime, recipes]) => {
         recipes.forEach((recipe, index) => {
             const row = document.createElement('tr');
-    
+
             // Helper function to create a table cell (td) with modified style
             function createStyledCell(textContent) {
                 const cell = document.createElement('td');
@@ -131,16 +132,16 @@ function createMealPlannerTable() {
                 cell.style.textAlign = alignment; // Set text alignment
                 return cell;
             }
-            
-    
+
+
             const mealCell = createStyledCell(index === 0 ? mealTime.charAt(0).toUpperCase() + mealTime.slice(1) : '');
             row.appendChild(mealCell);
             const recipeCell = createStyledCell(recipe.title);
             row.appendChild(recipeCell);
-    
+
             const ingredientsCell = createStyledCell(recipe.ingredients.join(', '));
             row.appendChild(ingredientsCell);
-    
+
             // Then, when creating calories, proteins, and fats cells:
             const caloriesCell = createStyledCellforNutritionalValues(recipe.nutritionalValues.calories, '', 'center'); // No 'g' for calories, centered
             row.appendChild(caloriesCell);
@@ -150,12 +151,12 @@ function createMealPlannerTable() {
 
             const fatsCell = createStyledCellforNutritionalValues(recipe.nutritionalValues.fat, 'g', 'center'); // Append 'g' and center
             row.appendChild(fatsCell);
-                
+
             // Delete button cell (keep it styled as is for visibility)
             const deleteButtonCell = document.createElement('td');
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Remove';
-            deleteButton.classList.add('bg-green-700', 'text-white', 'px-2', 'py-1', 'rounded','text-sl', 'font-semibold');
+            deleteButton.classList.add('bg-green-700', 'text-white', 'px-2', 'py-1', 'rounded', 'text-sl', 'font-semibold');
             deleteButton.onclick = () => {
                 const removedRecipeNutritionalValues = selectedRecipes[mealTime][index].nutritionalValues;
                 // Handle the removal of the recipe from the planner
@@ -165,7 +166,7 @@ function createMealPlannerTable() {
             };
             deleteButtonCell.appendChild(deleteButton);
             row.appendChild(deleteButtonCell);
-    
+
             tableBody.appendChild(row);
         });
     });
@@ -205,7 +206,7 @@ function createMealPlannerTable() {
     totalsRow.appendChild(totalFatCell);
 
     // Optionally, add an empty cell if you have an "Actions" column to keep the layout consistent
-   // Assuming the totalsRow and tableBody setup is already done
+    // Assuming the totalsRow and tableBody setup is already done
 
     // Create an empty cell for the shopping cart button, if you haven't added one already
     const emptyActionCell = document.createElement('td');
@@ -241,10 +242,10 @@ function createMealPlannerTable() {
     // Append the meal planner div (which includes the table) to the container
     mealPlannerContainer.appendChild(mealPlannerDiv);
 
-    shoppingCartButton.addEventListener('click', function(){
+    shoppingCartButton.addEventListener('click', function () {
         createShoppingCart(selectedRecipes);
     });
-    
+
 }
 
 
