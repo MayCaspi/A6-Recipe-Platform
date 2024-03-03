@@ -1,6 +1,6 @@
 // Import db from server/server.js
 import { db } from "./server/server.js";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "./firebase/firestore";
 import { createNav } from "./navigationBar";
 import { createSearchBar } from "./searchBar";
 import { createRecipeCardOnDisplay } from './createCard';
