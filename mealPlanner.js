@@ -216,7 +216,7 @@ function createMealPlannerTable() {
 
     // Create the shopping cart icon as an img element
     const shoppingCartIcon = document.createElement('img');
-    shoppingCartIcon.src = 'pictures/add-to-cart.png'; // Adjust the path as needed
+    shoppingCartIcon.src = 'https://firebasestorage.googleapis.com/v0/b/webproject-58141.appspot.com/o/recipeImages%2Fadd-to-cart.png?alt=media&token=1b4dd764-7ad4-45d1-9f76-3d8c5c94d061'; // Adjust the path as needed
     shoppingCartIcon.alt = 'Shopping Cart'; // Accessibility: add an alt text
     shoppingCartIcon.style.width = '24px'; // Example size, adjust as needed
     shoppingCartIcon.style.height = '24px'; // Example size, adjust as needed
