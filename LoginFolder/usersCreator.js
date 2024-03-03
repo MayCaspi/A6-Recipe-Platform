@@ -4,11 +4,12 @@ const fs = require('fs');
 const newUsers = [
   { username: 'shay', password: '12345678' },
   { username: 'may', password: '12345678' },
+  { username: 'matan', password: '12345678' },
+  { username: 'tzahi', password: '12345678' },
+  { username: 'daniel', password: '12345678' },
   { username: 'naomi', password: '12345678' },
   { username: 'alex', password: '12345678' },
-  { username: 'matan', password: '12345678' },
-  { username: 'daniel', password: '12345678' },
-  { username: 'tzahi', password: '12345678' }
+  { username: 'nir', password: '12345678' }
 ];
 
 // Encode username and password for new users
