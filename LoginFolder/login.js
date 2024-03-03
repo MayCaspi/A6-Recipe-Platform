@@ -25,7 +25,7 @@ $(document).ready(function() {
             if (user) {
                 alert('Login successful');
                 $('body').fadeOut(1000, function() {
-                    window.location.href = '../mainScreen.html'; // Redirect to main page
+                    window.location.href = 'mainScreen.html'; // Redirect to main page
                 });
                 
             } else {

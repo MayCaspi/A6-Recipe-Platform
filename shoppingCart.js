@@ -38,7 +38,6 @@ function createShoppingCart(selectedRecipes) {
         "absolute",
         "top-0",
         "right-0",
-     
         "mr-1",
         "text-gray-800",
         "text-2xl",
