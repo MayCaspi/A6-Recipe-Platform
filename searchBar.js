@@ -2,8 +2,13 @@ function createSearchBar(){
     // Create the search bar container
     const searchBarContainer = document.getElementById('searchBar');
     const searchBarDiv = document.createElement('div');
-    searchBarDiv.classList.add('flex', 'items-center');
-  
+    searchBarDiv.classList.add(
+      'flex', 'items-center', // Common classes for flex and centering items
+      'lg:flex-row', 'lg:justify-between', // Large screens: Set flex direction to row and justify-between
+      'md:flex-col', 'md:items-start', // Medium screens: Set flex direction to column and align items to start
+      'sm:flex-col', 'sm:items-start', // Small screens: Set flex direction to column and align items to start
+      'xs:flex-col', 'xs:items-start'  // Extra small screens: Set flex direction to column and align items to start
+    );
     // Create and append the inner HTML
     const searchInput = createInput('', 'w-96', 'Search for a recipe');
     searchInput.classList.add('border', 'rounded', 'p-2', 'mr-2', 'text-sm');
