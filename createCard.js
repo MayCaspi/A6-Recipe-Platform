@@ -70,7 +70,13 @@ export function createRecipeCardOnDisplay(title, imageSrc, description, ingredie
             "shadow-lg",
             "z-50",
             "text-center",
+            "w-11/12",
             "max-w-md",
+            "mx-auto", // Center the popup horizontally
+            "sm:w-4/5", // 80% width on small screens
+            "md:w-2/3", // 66% width on medium screens
+            "lg:w-1/2", // 50% width on large screens
+            "xl:w-1/3", // 33% width on extra-large screens
             "max-h-[28]",
             "popup"
         );
