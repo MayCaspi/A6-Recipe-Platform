@@ -2,10 +2,10 @@ function createSearchBar(){
     // Create the search bar container
     const searchBarContainer = document.getElementById('searchBar');
     const searchBarDiv = document.createElement('div');
-    searchBarDiv.classList.add('flex', 'items-center');
+    searchBarDiv.classList.add('flex', 'justify-center');
   
     // Create and append the inner HTML
-    const searchInput = createInput('', 'w-10/12', 'Search for a recipe');
+    const searchInput = createInput('', 'w-6/12', 'Search for a recipe');
     searchInput.classList.add('border', 'rounded', 'p-2', 'mx-2', 'text-sm');
   
     const searchButton = document.createElement('button');
@@ -34,7 +34,7 @@ function createSearchBar(){
   
     searchBarDiv.appendChild(searchInput);
     searchBarDiv.appendChild(searchButton);
-  
+    searchBarDiv.classList.add('mx-auto');
     // Append the search bar container to the existing div
     searchBarContainer.appendChild(searchBarDiv);
   }
