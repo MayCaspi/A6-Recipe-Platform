@@ -12,7 +12,7 @@ function createNewRecipe() {
 
   const newRecipeDiv = document.createElement('div');
 
-  newRecipeDiv.classList.add('text-center', 'bg-white', 'p-4', 'rounded-lg', 'shadow-md', 'grid', 'justify-items-center');
+  newRecipeDiv.classList.add('text-center', 'bg-white', 'p-4', 'rounded-lg', 'shadow-md', 'grid', 'justify-items-center','dark:bg-slate-800');
 
   // Create and append the inner HTML
   const titleDiv = document.createElement('div');
