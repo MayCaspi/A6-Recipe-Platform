@@ -18,7 +18,6 @@ function createNav()
         { text: 'Home', href: '#Home', id:'home-page' },
         { text: 'New Recipe', href: '#newRecipe',id:'newRecipe-page' },
         { text: 'Meal Planner', href: '#banner',id:'mealPlanner-page' },
-        { text: 'Shopping Cart',href:'#Home', id:'shopping-cart'},
         { text: 'dark', id: 'btnTheme' }
     ];
 
@@ -28,7 +27,7 @@ function createNav()
             var buttonElement = document.createElement('button');
             buttonElement.id = item.id;
             buttonElement.classList.add('text-white', 'text-xl', 'hover:text-blue-950', 'duration-200', 'border', 'border-white', 'mx-2', 'px-3', 'rounded-full');
-            buttonElement.textContent = item.text;
+            buttonElement.textContent = '☀️';
             liElement.appendChild(buttonElement);
         } else {
             var anchorElement = document.createElement('a');
@@ -84,23 +83,36 @@ function createNav()
     var popUpLinks = [
         { text: 'Home', href: '#Home' },
         { text: 'New Recipe', href: '#newRecipe' },
-        { text: 'Meal Planner', href: '#mealPlanner' }
+        { text: 'Meal Planner', href: '#mealPlanner' },
+        {text:'☀️',id:'PhoneDarkMode'}
     ];
 
     popUpLinks.forEach(item => {
-        var linkElement = document.createElement('a');
-        linkElement.href = item.href;
-        linkElement.classList.add('font-bold', 'hover:underline', 'text-2xl', 'block');
-        linkElement.textContent = item.text;
-        popUpDiv.appendChild(linkElement);
+        if (item.text ==='☀️')
+        {
+            var DarkModePhoneButton = document.createElement('button');
+            DarkModePhoneButton.id = "PhoneDarkMode";
+            DarkModePhoneButton.textContent = "☀️";
+            popUpDiv.appendChild(DarkModePhoneButton);
+        }
+        else
+        {
+            var linkElement = document.createElement('a');
+            linkElement.href = item.href;
+            linkElement.classList.add('font-bold', 'hover:underline', 'text-2xl', 'block');
+            linkElement.textContent = item.text;
+            popUpDiv.appendChild(linkElement);
+        }
     });
+
+   
 
     // Append elements to the main container
     containerDiv.appendChild(titleDiv);
     containerDiv.appendChild(ulElement);
     containerDiv.appendChild(btnMenu);
     containerDiv.appendChild(popUpDiv);
-
+    
     navBar.appendChild(containerDiv);
 
     // Append the nav element to the body
@@ -111,7 +123,14 @@ function createNav()
         document.getElementById("btnTheme").addEventListener("click", function () {
             document.documentElement.classList.toggle("dark");
             document.getElementById("btnTheme").innerText = document.documentElement
-                .classList.contains("dark") ? "light" : "dark";
+                .classList.contains("dark") ? "🌑" : "☀️";
+        });
+
+
+        document.getElementById("PhoneDarkMode").addEventListener("click", function () {
+            document.documentElement.classList.toggle("dark");
+            document.getElementById("PhoneDarkMode").innerText = document.documentElement
+                .classList.contains("dark") ? "🌑" : "☀️";
         });
 
         document.getElementById("btnMenu").addEventListener("click", function () {

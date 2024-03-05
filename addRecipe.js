@@ -45,11 +45,11 @@ function createNewRecipe() {
 
   // Input for Nutrition Values (2x2 Format)
   const nutritionGrid = document.createElement('div');
-  nutritionGrid.classList.add('auto', 'gap-2', 'mt-2', 'w-1/3');
+  nutritionGrid.classList.add('auto', 'gap-2', 'mt-2', 'sm:w-1/3','w-full');
 
-  const caloriesInput = createInput('newCal', 'w-full sm:w-full', 'Enter Calories');
-  const fatInput = createInput('newFat', 'w-full sm:w-full', 'Enter Fat (g)');
-  const proteinInput = createInput('newProtein', 'w-full sm:w-full', 'Enter Protein (g)');
+  const caloriesInput = createInput('newCal', 'w-full sm:w-1/6', 'Enter Calories');
+  const fatInput = createInput('newFat', 'w-full sm:w-1/6', 'Enter Fat (g)');
+  const proteinInput = createInput('newProtein', 'w-full sm:w-1/6', 'Enter Protein (g)');
 
   nutritionGrid.appendChild(caloriesInput);
   nutritionGrid.appendChild(fatInput);
